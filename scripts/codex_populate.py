@@ -78,6 +78,15 @@ def main():
     # open / update PR
     repo = os.getenv("GITHUB_REPOSITORY", "underthemoss/construction-taxonomy")
     gh_token = os.getenv("GITHUB_TOKEN")
+    if not gh_token:
+        # Dynamically fetch installation token using helper
+        import subprocess, pathlib, os
+        helper = pathlib.Path(__file__).with_name("get_installation_token.py")
+        gh_token = subprocess.check_output(
+            ["python", str(helper)],
+            env=os.environ,
+            text=True
+        ).strip()
     headers = {
         "Authorization": f"token {gh_token}",
         "Accept": "application/vnd.github+json"

@@ -9,13 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.BOT_GITHUB_TOKEN }}
+          persist-credentials: false      # we will push with installation token
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install jsonschema openai requests
+      - run: pip install jsonschema openai requests pyjwt[crypto]
       - name: Run Codex populate
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN:   ${{ secrets.BOT_GITHUB_TOKEN }}
+          GH_APP_ID:           ${{ secrets.GH_APP_ID }}
+          GH_APP_PRIVATE_KEY:  ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: python scripts/codex_populate.py
