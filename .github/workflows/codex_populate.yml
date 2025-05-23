@@ -24,4 +24,4 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GH_APP_ID:           ${{ secrets.GH_APP_ID }}
           GH_APP_PRIVATE_KEY:  ${{ secrets.GH_APP_PRIVATE_KEY }}
-        run: python scripts/codex_populate.py
+        run: python scripts/codex_enhanced.py
