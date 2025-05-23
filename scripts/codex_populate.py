@@ -8,7 +8,7 @@ Codex attribute proposer:
 """
 import json, os, subprocess, datetime, pathlib, requests, openai, sys
 ROOT       = pathlib.Path(__file__).resolve().parents[1]
-ATTR_FILE  = ROOT / "attributes" / "attributes.json"
+ATTR_FILE  = ROOT / "attributes" / "consolidated_attributes.json"
 BRANCH     = f"codex/attr-{datetime.date.today()}"
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -71,7 +71,7 @@ def main():
     # local validation
     subprocess.check_call(["python", "scripts/validate.py"], cwd=ROOT)
 
-    git("add", "attributes/attributes.json")
+    git("add", "attributes/consolidated_attributes.json")
     git("commit", "-m", f"chore(codex): add attributes {', '.join(added)}")
     git("push", "-f", "origin", BRANCH)
 
