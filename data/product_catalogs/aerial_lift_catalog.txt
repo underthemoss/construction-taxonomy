@@ -1,0 +1,109 @@
+# JLG Electric Articulating Boom Lift Specifications
+
+## JLG E400AJP
+
+The JLG E400AJP articulating boom lift offers a working height of 40 ft and provides access to hard-to-reach places. This environmentally friendly electric lift is ideal for both indoor and outdoor applications.
+
+### Specifications:
+* Platform Height: 40 ft (12.19 m)
+* Horizontal Outreach: 22 ft 5 in (6.83 m)
+* Up and Over Height: 21 ft 2 in (6.55 m)
+* Platform Capacity (Unrestricted): 500 lb (227 kg)
+* Platform Size: 30 x 48 in (0.76 x 1.22 m)
+* Overall Width: 5 ft 9 in (1.75 m)
+* Overall Height (Stowed): 6 ft 7 in (2.01 m)
+* Overall Length (Stowed): 18 ft 4 in (5.59 m)
+* Weight: 13,700 lb (6,214 kg)
+* Maximum Ground Bearing Pressure: 80 psi (5.63 kg/cm²)
+* Drive Speed: 3.0 mph (4.8 km/h)
+* Gradeability: 30%
+* Turning Radius (Inside): 4 ft 4 in (1.32 m)
+* Turning Radius (Outside): 10 ft 0 in (3.05 m)
+* Power Source: 48V DC (8 x 6V, 370 Ah batteries)
+* Drive Motors: 24V DC (dual drive)
+* Brake System: Automatic spring-applied, hydraulically released
+* Auxiliary Power: 12V DC
+* Operating Temperature Range: -20°F to 120°F (-29°C to 49°C)
+
+## JLG E450AJ
+
+The JLG E450AJ electric articulating boom lift delivers greater work envelope capacity and provides operators with more height to work within confined spaces.
+
+### Specifications:
+* Platform Height: 45 ft (13.72 m)
+* Horizontal Outreach: 23 ft 1 in (7.04 m)
+* Up and Over Height: 23 ft 5 in (7.14 m)
+* Platform Capacity (Unrestricted): 550 lb (250 kg)
+* Platform Size: 30 x 48 in (0.76 x 1.22 m)
+* Overall Width: 5 ft 9 in (1.75 m)
+* Overall Height (Stowed): 6 ft 6 in (1.98 m)
+* Overall Length (Stowed): 20 ft 11 in (6.38 m)
+* Weight: 14,400 lb (6,532 kg)
+* Maximum Ground Bearing Pressure: 85 psi (5.98 kg/cm²)
+* Drive Speed: 3.0 mph (4.8 km/h)
+* Gradeability: 30%
+* Turning Radius (Inside): 2 ft 8 in (0.81 m)
+* Turning Radius (Outside): 11 ft 5 in (3.48 m)
+* Power Source: 48V DC (8 x 6V, 370 Ah batteries)
+* Drive Motors: 24V DC (dual drive)
+* Brake System: Automatic spring-applied, hydraulically released
+* Auxiliary Power: 12V DC
+* Oscillating Axle: 8 in (20.3 cm)
+* Operating Temperature Range: -20°F to 120°F (-29°C to 49°C)
+
+# Genie Scissor Lifts
+
+## Genie GS-1930
+
+The Genie GS-1930 electric scissor lift is a compact, lightweight option for indoor and outdoor construction, maintenance, and installation applications.
+
+### Specifications:
+* Working Height: 25 ft (7.79 m)
+* Platform Height: 19 ft (5.79 m)
+* Platform Dimensions: 28 x 71 in (0.71 x 1.82 m)
+* Extension Deck: 35.2 in (0.89 m)
+* Lift Capacity: 500 lb (227 kg)
+* Drive Speed (Stowed): 2.5 mph (4.0 km/h)
+* Drive Speed (Raised): 0.5 mph (0.8 km/h)
+* Gradeability: 25%
+* Turning Radius (Inside): Zero
+* Turning Radius (Outside): 5 ft 3 in (1.6 m)
+* Raise/Lower Speed: 20/30 seconds
+* Controls: Proportional
+* Drive: Electric 24V DC (4 x 6V, 225 Ah batteries)
+* Tires: 12 x 4.5 in (30 x 11 cm) Solid non-marking
+* Width: 30 in (0.76 m)
+* Length (Stowed): 6 ft 1 in (1.85 m)
+* Height (Stowed, Rails Up): 6 ft 9 in (2.06 m)
+* Height (Stowed, Rails Down): 5 ft 1 in (1.55 m)
+* Weight: 2,750 lb (1,247 kg)
+* Floor Loading Capacity: 197 psf (963 kg/m²)
+* Maximum Occupancy: 1 person indoor/outdoor
+
+## Genie GS-2632
+
+The Genie GS-2632 electric scissor lift provides excellent maneuverability in tight spaces with its zero inside turning radius.
+
+### Specifications:
+* Working Height: 32 ft (9.92 m)
+* Platform Height: 26 ft (7.92 m)
+* Platform Dimensions: 31 x 88 in (0.79 x 2.24 m)
+* Extension Deck: 35.2 in (0.89 m)
+* Lift Capacity: 500 lb (227 kg)
+* Extension Deck Capacity: 250 lb (113 kg)
+* Drive Speed (Stowed): 2.2 mph (3.5 km/h)
+* Drive Speed (Raised): 0.5 mph (0.8 km/h)
+* Gradeability: 25%
+* Turning Radius (Inside): Zero
+* Turning Radius (Outside): 7 ft 0 in (2.13 m)
+* Raise/Lower Speed: 30/26 seconds
+* Controls: Proportional
+* Drive: Electric 24V DC (4 x 6V, 225 Ah batteries)
+* Tires: 15 x 5 in (38 x 13 cm) Solid non-marking
+* Width: 32 in (0.81 m)
+* Length (Stowed): 8 ft 0 in (2.44 m)
+* Height (Stowed, Rails Up): 7 ft 5 in (2.26 m)
+* Height (Stowed, Rails Down): 5 ft 9 in (1.75 m)
+* Weight: 4,413 lb (2,002 kg)
+* Floor Loading Capacity: 223 psf (1,088 kg/m²)
+* Maximum Occupancy: 2 persons indoor / 1 person outdoor
