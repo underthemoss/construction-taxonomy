@@ -1,0 +1,99 @@
+# Caterpillar Excavator Specifications
+
+## CAT 320 GC Hydraulic Excavator
+
+The Cat 320 GC excavator balances productivity with easy-to-use controls, a new comfortable cab, reduced fuel consumption, and lower maintenance costs to provide maximum value.
+
+### Specifications:
+* Operating Weight: 42,000 lb (19,100 kg)
+* Engine Model: Cat C4.4 ACERT
+* Net Power: 121 hp (90 kW)
+* Maximum Dig Depth: 22 ft 1 in (6.72 m)
+* Maximum Reach at Ground Level: 32 ft 4 in (9.86 m)
+* Maximum Loading Height: 22 ft 10 in (6.95 m)
+* Maximum Cutting Height: 31 ft 3 in (9.53 m)
+* Bucket Capacity Range: 0.5-1.6 ydu00b3 (0.38-1.22 mu00b3)
+* Maximum Bucket Force: 28,090 lbf (125 kN)
+* Maximum Stick Force: 21,420 lbf (95.3 kN)
+* Swing Speed: 11.5 rpm
+* Maximum Travel Speed: 3.4 mph (5.5 km/h)
+* Drawbar Pull: 36,380 lbf (162 kN)
+* Ground Pressure: 6.4 psi (44.3 kPa)
+* Fuel Tank Capacity: 86 gal (325 L)
+* Hydraulic System Capacity: 39 gal (148 L)
+* Sound Level Inside Cab: 72 dB(A)
+* Sound Level Outside Cab: 103 dB(A)
+
+## CAT 330 Hydraulic Excavator
+
+The Cat 330 excavator offers increased operating efficiency, lower fuel and maintenance costs, and improved operator comfort.
+
+### Specifications:
+* Operating Weight: 67,500 lb (30,600 kg)
+* Engine Model: Cat C7.1 ACERT
+* Net Power: 204 hp (152 kW)
+* Maximum Dig Depth: 24 ft 1 in (7.34 m)
+* Maximum Reach at Ground Level: 35 ft 10 in (10.92 m)
+* Maximum Loading Height: 24 ft 3 in (7.4 m)
+* Maximum Cutting Height: 33 ft 8 in (10.26 m)
+* Bucket Capacity Range: 0.87-2.13 ydu00b3 (0.67-1.63 mu00b3)
+* Maximum Bucket Force: 38,250 lbf (170 kN)
+* Maximum Stick Force: 29,450 lbf (131 kN)
+* Swing Speed: 10.3 rpm
+* Maximum Travel Speed: 3.4 mph (5.5 km/h)
+* Drawbar Pull: 56,450 lbf (251 kN)
+* Ground Pressure: 7.3 psi (50.4 kPa)
+* Fuel Tank Capacity: 126 gal (477 L)
+* Hydraulic System Capacity: 62 gal (234 L)
+* Sound Level Inside Cab: 70 dB(A)
+* Sound Level Outside Cab: 105 dB(A)
+
+# John Deere Excavators
+
+## John Deere 135G
+
+The John Deere 135G excavator is built for reliability and productivity in various applications.
+
+### Specifications:
+* Operating Weight: 31,618 lb (14,341 kg)
+* Engine Model: John Deere PowerTechu2122 PWS 4045
+* Net Power: 101 hp (75 kW)
+* Maximum Dig Depth: 19 ft 9 in (6.01 m)
+* Maximum Reach at Ground Level: 29 ft 1 in (8.86 m)
+* Maximum Loading Height: 21 ft 8 in (6.61 m)
+* Maximum Cutting Height: 30 ft 3 in (9.22 m)
+* Bucket Capacity Range: 0.43-1.0 ydu00b3 (0.33-0.76 mu00b3)
+* Maximum Bucket Force: 21,357 lbf (95.0 kN)
+* Maximum Stick Force: 13,933 lbf (62.0 kN)
+* Swing Speed: 13.3 rpm
+* Maximum Travel Speed: 3.4 mph (5.5 km/h)
+* Drawbar Pull: 26,977 lbf (120 kN)
+* Ground Pressure: 5.8 psi (40.0 kPa)
+* Fuel Tank Capacity: 58 gal (220 L)
+* Hydraulic System Capacity: 34 gal (129 L)
+* Sound Level Inside Cab: 70 dB(A)
+* Sound Level Outside Cab: 99 dB(A)
+
+## John Deere 250G LC
+
+The John Deere 250G LC excavator delivers reliability, durability, and productivity in demanding applications.
+
+### Specifications:
+* Operating Weight: 55,690 lb (25,260 kg)
+* Engine Model: John Deere PowerTechu2122 PSS 6068
+* Net Power: 188 hp (140 kW)
+* Maximum Dig Depth: 23 ft 4 in (7.11 m)
+* Maximum Reach at Ground Level: 34 ft 3 in (10.44 m)
+* Maximum Loading Height: 23 ft 4 in (7.11 m)
+* Maximum Cutting Height: 33 ft 7 in (10.24 m)
+* Bucket Capacity Range: 0.76-2.13 ydu00b3 (0.58-1.63 mu00b3)
+* Maximum Bucket Force: 35,520 lbf (158 kN)
+* Maximum Stick Force: 26,240 lbf (117 kN)
+* Swing Speed: 11.5 rpm
+* Maximum Travel Speed: 3.4 mph (5.5 km/h)
+* Drawbar Pull: 45,860 lbf (204 kN)
+* Ground Pressure: 7.11 psi (49.0 kPa)
+* Fuel Tank Capacity: 140 gal (530 L)
+* Hydraulic System Capacity: 66 gal (250 L)
+* Sound Level Inside Cab: 69 dB(A)
+* Sound Level Outside Cab: 102 dB(A)
