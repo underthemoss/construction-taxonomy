@@ -1,0 +1,58 @@
+name: Change Request
+description: Suggest a change to the taxonomy
+title: "[CHANGE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement to our construction taxonomy!
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change Type
+      description: What type of change are you proposing?
+      options:
+        - New attribute
+        - New category
+        - Modify existing attribute
+        - Modify existing category
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Target
+      description: Which file or component would be affected?
+      placeholder: "e.g., attributes/attributes.json or categories/aerial_work_platforms.json"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe your proposed change in detail
+      placeholder: "I suggest adding..."
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification
+      description: Why is this change important?
+      placeholder: "This change would benefit..."
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source
+      description: What is the source of this suggestion?
+      options:
+        - Industry knowledge/experience
+        - Customer feedback
+        - Research
+        - Other
+    validations:
+      required: false

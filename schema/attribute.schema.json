@@ -1,0 +1,13 @@
+{
+  "$id": "attribute.schema.json",
+  "type": "object",
+  "required": ["name", "type", "category"],
+  "properties": {
+    "name":        { "type": "string" },
+    "type":        { "type": "string", "enum": ["string", "number", "boolean"] },
+    "unit":        { "type": "string" },
+    "category":    { "type": "string", "enum": ["physics","brand"] },
+    "description": { "type": "string" }
+  },
+  "additionalProperties": false
+}

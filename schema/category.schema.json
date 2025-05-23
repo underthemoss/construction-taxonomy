@@ -1,0 +1,29 @@
+{
+  "$id": "category.schema.json",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": { "type": "string" },
+    "subcategories": {
+      "type": "array",
+      "items": { "$ref": "category.schema.json" }
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref","commonality_threshold"],
+        "properties": {
+          "ref": { "type": "string" },
+          "commonality_threshold": { "type": "integer", "minimum": 0, "maximum": 100 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "oneOf": [
+    { "required": ["subcategories"], "not": { "required": ["attributes"] } },
+    { "required": ["attributes"],    "not": { "required": ["subcategories"] } }
+  ],
+  "additionalProperties": false
+}

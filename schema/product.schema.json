@@ -1,0 +1,25 @@
+{
+  "$id": "product.schema.json",
+  "type": "object",
+  "required": ["name","category","attributes"],
+  "properties": {
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name","value"],
+        "properties": {
+          "name":  { "type": "string" },
+          "value": {},
+          "unit":  { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source": { "type": "string" },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": false
+}

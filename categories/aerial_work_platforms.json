@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema/category.schema.json",
+  "name": "Aerial Work Platforms",
+  "subcategories": [
+    {
+      "name": "Boom Lifts",
+      "subcategories": [
+        {
+          "name": "Electric Boom Lifts",
+          "attributes": [
+            { "ref": "max_platform_height", "commonality_threshold": 100 },
+            { "ref": "lift_capacity",       "commonality_threshold": 100 },
+            { "ref": "battery_voltage",     "commonality_threshold": 100 },
+            { "ref": "turning_radius_4ws",  "commonality_threshold": 80 },
+            { "ref": "manufacturer",        "commonality_threshold": 100 },
+            { "ref": "model_number",        "commonality_threshold": 100 }
+          ]
+        }
+      ]
+    }
+  ]
+}
