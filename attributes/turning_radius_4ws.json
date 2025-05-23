@@ -1,0 +1,6 @@
+{
+  "name": "Turning Radius (4WS)",
+  "type": "number",
+  "unit": "ft",
+  "category": "physics"
+}

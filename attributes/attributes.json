@@ -1,40 +1,6 @@
 {
-  "$schema": "../schema/attribute.schema.json",
-  "attributes": {
-    "manufacturer": {
-      "name": "Manufacturer",
-      "type": "string",
-      "category": "brand",
-      "description": "Company that produces the product"
-    },
-    "model_number": {
-      "name": "Model Number",
-      "type": "string",
-      "category": "brand"
-    },
-    "max_platform_height": {
-      "name": "Max Platform Height",
-      "type": "number",
-      "unit": "ft",
-      "category": "physics"
-    },
-    "lift_capacity": {
-      "name": "Lift Capacity",
-      "type": "number",
-      "unit": "lb",
-      "category": "physics"
-    },
-    "battery_voltage": {
-      "name": "Battery Voltage",
-      "type": "number",
-      "unit": "V",
-      "category": "physics"
-    },
-    "turning_radius_4ws": {
-      "name": "Turning Radius (4WS)",
-      "type": "number",
-      "unit": "ft",
-      "category": "physics"
-    }
-  }
+  "name": "Manufacturer",
+  "type": "string",
+  "category": "brand",
+  "description": "Company that produces the product"
 }

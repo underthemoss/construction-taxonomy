@@ -1,0 +1,6 @@
+{
+  "name": "Lift Capacity",
+  "type": "number",
+  "unit": "lb",
+  "category": "physics"
+}

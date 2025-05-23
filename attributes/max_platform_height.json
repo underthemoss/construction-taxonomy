@@ -1,0 +1,6 @@
+{
+  "name": "Max Platform Height",
+  "type": "number",
+  "unit": "ft",
+  "category": "physics"
+}

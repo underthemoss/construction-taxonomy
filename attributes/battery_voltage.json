@@ -1,0 +1,6 @@
+{
+  "name": "Battery Voltage",
+  "type": "number",
+  "unit": "V",
+  "category": "physics"
+}
