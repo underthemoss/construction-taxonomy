@@ -6,9 +6,10 @@ Codex attribute proposer:
  • Updates the file, validates, commits, pushes a branch
  • Opens (or updates) a PR via GitHub API
 """
-import json, os, subprocess, datetime, pathlib, requests, openai, sys
+import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
 ROOT       = pathlib.Path(__file__).resolve().parents[1]
 ATTR_FILE  = ROOT / "attributes" / "consolidated_attributes.json"
+CATALOG_DIR = ROOT / "data" / "product_catalogs"
 BRANCH     = f"codex/attr-{datetime.date.today()}"
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -32,16 +33,75 @@ def ask_codex(prompt):
     )
     return rsp.choices[0].message.content.strip()
 
+def extract_specs(text: str):
+    """Parse bullet-list specs from raw catalog text.
+
+    Recognises leading "*" or "-" and splits lines of the form
+        * Operating Weight: 67,500 lb (30,600 kg)
+
+    Returns list of dicts with keys:
+        name, value, unit, alt_value, alt_unit (alt_* optional).
+    """
+    specs = []
+    bullet_pat = re.compile(r"^[\*\-]\s*(.+?):\s*(.+)$")
+    unit_pat  = re.compile(r"(?P<val>[\d,\.]+)\s*(?P<unit>[a-zA-Z/%]+)")
+    for line in text.splitlines():
+        m = bullet_pat.match(line.strip())
+        if not m:
+            continue
+        name, rhs = m.groups()
+        # primary number + unit
+        primary = unit_pat.search(rhs)
+        alt = None
+        if "(" in rhs and ")" in rhs:
+            inside = rhs[rhs.find("(")+1:rhs.rfind(")")]
+            alt = unit_pat.search(inside)
+        spec = {"name": name.strip()}
+        if primary:
+            spec["value"] = float(primary.group("val").replace(',', '')) if primary.group("val") else None
+            spec["unit"] = primary.group("unit")
+        if alt:
+            spec["alt_value"] = float(alt.group("val").replace(',', ''))
+            spec["alt_unit"] = alt.group("unit")
+        specs.append(spec)
+    return specs
+
+def build_prompt(current_attrs, specs):
+    schema_reminder = (
+        "ATTRIBUTE LIBRARY RULES:\n"
+        "- Attributes are defined once in consolidated_attributes.json using snake_case keys.\n"
+        "- Each attribute object must have name, type, category, optional unit.\n"
+        "- category must be 'physics' or 'brand'. Units only allowed for physics attributes.\n"
+    )
+    excavator_example = (
+        "EXCAVATOR SPEC EXAMPLE:\n"
+        "* Operating Weight: 67,500 lb (30,600 kg)\n"
+        "* Engine Model: Cat C7.1 ACERT\n"
+        "* Net Power: 204 hp (152 kW)\n"
+        "* Maximum Dig Depth: 24 ft 1 in (7.34 m)\n"
+        "* Maximum Reach at Ground Level: 35 ft 10 in (10.92 m)\n"
+    )
+    prompt = (
+        f"{schema_reminder}\n\n"
+        f"{excavator_example}\n\n"
+        "KNOWN ATTRIBUTES (JSON):\n" + json.dumps(current_attrs, indent=2) + "\n\n" +
+        "CATALOG SPECS PARSED (JSON, may include alt_value/alt_unit):\n" + json.dumps(specs, indent=2) + "\n\n" +
+        "Suggest up to FIVE NEW attributes not yet present, return EXACT JSON object: {\"new_attributes\": {...}}"
+    )
+    return prompt
+
 def propose():
     data = load_attributes()
     existing = set(data["attributes"].keys())
-    prompt = (
-      "Below is a JSON of known product attributes for the construction industry. "
-      "Suggest up to FIVE NEW physics- or brand-based attributes commonly present "
-      "in ≥80 % of equipment records that are NOT already listed. "
-      "Return EXACTLY a JSON object: {\"new_attributes\": {\"code\": { ... }, ... }}.\n\n"
-      + json.dumps(data["attributes"])
-    )
+
+    # load one sample catalog text (first file)
+    sample_text = ""
+    sample_path = next(CATALOG_DIR.rglob("*.txt"), None)
+    if sample_path and sample_path.exists():
+        sample_text = sample_path.read_text(errors="ignore")
+    specs = extract_specs(sample_text)
+
+    prompt = build_prompt(data["attributes"], specs)
     try:
         raw = ask_codex(prompt)
         parsed = json.loads(raw)
@@ -52,8 +112,17 @@ def propose():
     if not new_attrs:
         return None
     data["attributes"].update(new_attrs)
-    with ATTR_FILE.open("w") as f:
-        json.dump(data, f, indent=2)
+
+    # write back: consolidated file or per-file
+    if ATTR_FILE.exists():
+        with ATTR_FILE.open("w") as f:
+            json.dump(data, f, indent=2)
+    else:
+        attr_dir = ROOT / "attributes"
+        attr_dir.mkdir(exist_ok=True)
+        for code, obj in new_attrs.items():
+            with (attr_dir / f"{code}.json").open("w") as f:
+                json.dump(obj, f, indent=2)
     return new_attrs.keys()
 
 def main():

@@ -86,8 +86,8 @@ def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[s
             attribute_patterns = [
                 # "Name: Value" pattern
                 r'\b([A-Z][\w\s-]+(?:\([^)]+\))?)\s*:\s*([\w\d\.\s-]+)(?:\(([^)]+)\))?',
-                # Bullet point pattern
-                r'•\s*([A-Z][\w\s-]+(?:\([^)]+\))?)\s*:\s*([\w\d\.\s-]+)(?:\(([^)]+)\))?',
+                # Bullet point pattern with * or • symbol
+                r'[*•]\s*([A-Z][\w\s-]+(?:\([^)]+\))?)\s*:\s*([\w\d\.\s-]+)(?:\(([^)]+)\))?',
                 # Table-like format
                 r'\|\s*([A-Z][\w\s-]+(?:\([^)]+\))?)\s*\|\s*([\w\d\.\s-]+)(?:\(([^)]+)\))?\s*\|'
             ]
@@ -106,15 +106,23 @@ def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[s
                         # Generate a key for this attribute
                         attr_key = re.sub(r'\W+', '_', attr_name.lower())
                         
-                        # Detect unit if present (often in parentheses)
+                        # Detect unit if present (often in parentheses or after a value)
                         unit = None
+                        
+                        # First check if unit is in parentheses in the match
                         if len(match) > 2 and match[2]:
                             unit = match[2].strip()
                         else:
-                            # Try to extract unit from the value
-                            unit_match = re.search(r'(\d+(?:\.\d+)?)\s*([a-zA-Z]+(?:\s[a-zA-Z]+)?)', attr_value)
+                            # Try to extract primary unit from the value (e.g., '67,500 lb (30,600 kg)' → 'lb')
+                            unit_match = re.search(r'(\d+(?:[,\.]\d+)?)\s*([a-zA-Z]+(?:\s[a-zA-Z]+)?)', attr_value)
                             if unit_match:
-                                unit = unit_match.group(2)
+                                unit = unit_match.group(2).strip()
+                            
+                            # Look for dual units in parentheses
+                            dual_unit_match = re.search(r'\((\d+(?:[,\.]\d+)?)\s*([a-zA-Z]+(?:\s[a-zA-Z]+)?)', attr_value)
+                            # If we have dual units but no primary unit, use the secondary unit
+                            if dual_unit_match and not unit:
+                                unit = dual_unit_match.group(2).strip()
                         
                         # Determine if this is a physics or brand attribute
                         # Physics attributes typically have units and numeric values
@@ -263,47 +271,38 @@ def deduplicate_attributes(new_attrs: Dict[str, Any], current_attrs: Dict[str, A
     
     return deduped
 
-def ask_codex(current_attrs: Dict[str, Any], example_attrs: Dict[str, Any], 
-             content_attrs: Dict[str, Any], manufacturer_data: Dict[str, Set[str]], schema: Dict[str, Any]) -> Dict[str, Any]:
-    """Ask Codex for improved attribute definitions with awareness of brand vs physics attributes."""
-    # Add manufacturer data to content attributes for better understanding
-    enriched_content_attrs = {}
-    for key, attr in content_attrs.items():
-        enriched_attr = attr.copy()
-        if key in manufacturer_data:
-            manufacturers = list(manufacturer_data[key])
-            enriched_attr["_manufacturers"] = manufacturers
-            enriched_attr["_manufacturer_count"] = len(manufacturers)
-        else:
-            enriched_attr["_manufacturers"] = []
-            enriched_attr["_manufacturer_count"] = 0
-        enriched_content_attrs[key] = enriched_attr
-    
-    # Construct prompt with detailed context emphasizing brand vs physics distinction
+def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, Any]], example_attrs: Dict[str, Any], schema: Dict[str, Any]) -> Dict[str, Any]:
+    """Ask Codex for improved attribute definitions based on analysis."""
     prompt = (
         "You are an expert in construction equipment taxonomy. \n\n"
-        "I need you to recommend new attributes for our construction taxonomy.\n"
-        "The key distinction in our system is between two categories of attributes:\n"
-        "1. PHYSICS attributes: Measurable properties that are universal across manufacturers (like weight, dimensions)\n"
-        "2. BRAND attributes: Manufacturer-specific properties (like model numbers, proprietary features)\n\n"
-        "Below are three sets of information:\n"
+        "ATTRIBUTE LIBRARY MODEL:\n"
+        "Our construction taxonomy uses a centralized attribute library where:\n"
+        "1. Each attribute has a unique snake_case identifier (e.g., 'max_platform_height')\n"
+        "2. Attributes are categorized as either 'physics' (properties shared across manufacturers) or 'brand' (manufacturer-specific)\n"
+        "3. Products reference these standardized attributes instead of defining new ones\n\n"
+        "PRODUCT CATALOG EXAMPLE:\n"
+        "```\n"
+        "* Operating Weight: 67,500 lb (30,600 kg)\n"
+        "* Engine Model: Cat C7.1 ACERT\n"
+        "* Net Power: 204 hp (152 kW)\n"
+        "* Maximum Dig Depth: 24 ft 1 in (7.34 m)\n"
+        "* Maximum Reach at Ground Level: 35 ft 10 in (10.92 m)\n"
+        "```\n\n"
+        "Below are three sets of attributes:\n"
         "1. CURRENT ATTRIBUTES in our taxonomy library:\n"
         f"{json.dumps(current_attrs, indent=2)}\n\n"
-        "2. POTENTIAL ATTRIBUTES identified from structured product examples:\n"
+        "2. CATALOG ATTRIBUTES extracted from manufacturer catalogs:\n"
+        f"{json.dumps(catalog_attrs, indent=2)}\n\n"
+        "3. EXAMPLE ATTRIBUTES identified from product examples:\n"
         f"{json.dumps(example_attrs, indent=2)}\n\n"
-        "3. POTENTIAL ATTRIBUTES extracted from product catalogs with manufacturer data:\n"
-        f"{json.dumps(enriched_content_attrs, indent=2)}\n\n"
         "4. ATTRIBUTE SCHEMA that all attributes must follow:\n"
         f"{json.dumps(schema, indent=2)}\n\n"
         "Based on this information:\n"
         "1. Identify 3-5 NEW attributes that aren't in the current library but would be valuable additions\n"
-        "2. PRIORITIZE PHYSICS attributes that appear across multiple manufacturers\n"
-        "3. Each attribute must be properly categorized as either 'physics' or 'brand'\n"
-        "4. If an attribute appears across multiple manufacturers, it's likely a 'physics' attribute\n"
-        "5. If an attribute only appears for one manufacturer, it's likely a 'brand' attribute\n"
-        "6. Physics attributes typically have units and numeric values\n"
-        "7. Each attribute must follow the schema exactly\n"
-        "8. Provide snake_case keys and proper categorization\n\n"
+        "2. CAREFULLY distinguish between PHYSICS attributes (common across manufacturers) and BRAND attributes\n"
+        "3. Focus on attributes commonly found in product specifications\n"
+        "4. Each attribute must follow the schema exactly\n"
+        "5. Provide snake_case keys and proper categorization\n\n"
         "Return EXACTLY a JSON object with this structure:\n"
         "{\"new_attributes\": {\"attribute_key\": {attribute definition}, ...}}\n\n"
         "Note: Each attribute definition must include name, type, category, and unit (if applicable)."
@@ -366,7 +365,7 @@ def main():
     
     # Ask Codex for suggestions based on analysis with brand awareness
     print("Consulting Codex for attribute recommendations...")
-    suggested_attrs = ask_codex(current_attrs, example_attrs, content_attrs, manufacturer_data, schema)
+    suggested_attrs = ask_codex(current_attrs, content_attrs, example_attrs, schema)
     print(f"Codex suggested {len(suggested_attrs)} new attributes")
     
     # Deduplicate and validate
