@@ -138,6 +138,7 @@ def propose(dry: bool = False):
     prompt = build_prompt(data["attributes"], specs)
     try:
         raw = ask_codex(prompt)
+        print("===== RAW CODEX REPLY =====\n", raw, "\n===========================")
         parsed = json.loads(raw)
         new_attrs = {k:v for k,v in parsed["new_attributes"].items() if k not in existing}
     except Exception as e:
