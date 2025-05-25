@@ -427,6 +427,10 @@ def main():
         git("checkout", "--", str(ATTR_FILE))
         return
     
+    # Ensure git identity (needed in CI containers)
+    git("config", "user.email", "codex-bot@users.noreply.github.com")
+    git("config", "user.name", "codex-bot")
+
     # Commit and push changes
     git("add", str(ATTR_FILE))
     git("commit", "-m", f"feat(codex): add attributes {', '.join(valid_attrs.keys())}")
