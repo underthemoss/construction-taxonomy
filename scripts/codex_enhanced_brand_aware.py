@@ -434,24 +434,43 @@ def main():
     # Commit and push changes
     git("add", str(ATTR_FILE))
     git("commit", "-m", f"feat(codex): add attributes {', '.join(valid_attrs.keys())}")
-    token = os.getenv("GITHUB_TOKEN")
-    if token:
-        remote_url = f"https://x-access-token:{token}@github.com/underthemoss/construction-taxonomy.git"
+    
+    # Handle GitHub token for authentication
+    gh_token = os.getenv("GITHUB_TOKEN")
+    is_ci = os.getenv("CI") == "true" or os.getenv("GITHUB_ACTIONS") == "true"
+    
+    # Get token from helper if in CI and no direct token
+    if is_ci and not gh_token and os.path.exists(pathlib.Path(__file__).with_name("get_installation_token.py")):
+        try:
+            helper = pathlib.Path(__file__).with_name("get_installation_token.py")
+            gh_token = subprocess.check_output(
+                ["python", str(helper)],
+                env=os.environ,
+                text=True
+            ).strip()
+            print("Retrieved token from helper script")
+        except Exception as e:
+            print(f"Could not get token from helper: {e}")
+    
+    # Push changes
+    if gh_token:
+        # Use token for auth
+        repo = os.getenv("GITHUB_REPOSITORY", "underthemoss/construction-taxonomy")
+        remote_url = f"https://x-access-token:{gh_token}@github.com/{repo}.git"
         git("push", "-f", remote_url, BRANCH)
-    else:
+    elif not is_ci:
+        # Only try pushing without token if not in CI
         git("push", "-f", "origin", BRANCH)
+    else:
+        print("⚠️ Skipping git push in CI environment without token")
     
     # Create or update PR
     repo = os.getenv("GITHUB_REPOSITORY", "underthemoss/construction-taxonomy")
-    gh_token = os.getenv("GITHUB_TOKEN")
+    
+    # Skip PR creation if no token
     if not gh_token:
-        # GITHUB_TOKEN fetched via helper script; uses global subprocess module
-        helper = pathlib.Path(__file__).with_name("get_installation_token.py")
-        gh_token = subprocess.check_output(
-            ["python", str(helper)],
-            env=os.environ,
-            text=True
-        ).strip()
+        print("⚠️ No GitHub token available, skipping PR creation")
+        return
     
     headers = {
         "Authorization": f"token {gh_token}",
