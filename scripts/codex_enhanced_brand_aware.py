@@ -6,6 +6,7 @@ Brand-Aware Codex attribute proposer:
  u2022 Applies strict schema validation and deduplication
  u2022 Creates a PR for human review
 """
+import subprocess
 import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
 from typing import Dict, List, Set, Any, Optional, Tuple
 from collections import defaultdict
