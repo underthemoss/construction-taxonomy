@@ -9,11 +9,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name","value"],
+        "required": ["attribute","value"],
         "properties": {
-          "name":  { "type": "string" },
-          "value": {},
-          "unit":  { "type": "string" }
+          "attribute": { "type": "string" },
+          "value": {}
         },
         "additionalProperties": false
       }
