@@ -1,0 +1,178 @@
+C 83
+CIRCULAR SAW BLADES
+METAL BLADES 
+ 
+FEATURES 
+ 
+Steel Cutting
+•  Crafted with 12% titanium carbide, DEWALT® Metal Cutting™ 
+saw blades tackle tough steel cutting applications with ease. 
+•  Modiﬁed ATB tooth geometry provides clean, burr-free 
+cuts, and expansion slots dissipate heat, extending blade 
+life. A tri-foil braze boosts the strength of each tooth tip for 
+extreme durability.
+ 
+Stainless Steel (Inox) Cutting
+•  Designed to power through stainless steel with ease, 
+DEWALT® stainless steel Metal Cutting™ saw blades are 
+crafted from carbide for long life and less chipping. Each 
+blade is laser-etched and color-coded by material.
+ 
+ Aluminium Cutting
+•  Backed by an ultra-thin kerf blade for fast cutting and helps 
+to increased battery life, DEWALT® Metal Cutting™ saw 
+blades are built to power through aluminum and non-ferrous 
+metals, including brass and copper. 
+•  Heavy-duty tungsten carbide tips maintain a sharp edge  
+for long life, and an anti-stick rim helps to reduce  
+friction and gum-up.
+ 
+ 
+ALUMINIUM - SINGLE PACKS 
+Cat. No
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade 
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth Direction
+Tooth 
+Geometry
+Tooth 
+Angle
+N MAX 
+RPM
+DT1911-QZ
+165
+20
+0.99
+1.49
+Full
+36
+Clockwise
+FTG
+ 3°
+7000
+DT1914-QZ
+216
+30
+1.8
+2.6
+Full
+48
+Clockwise
+TCG
+ -5°
+6000
+DT1916-QZ
+305
+30
+2.5
+3.2
+Full
+80
+Clockwise
+TCG
+ -5°
+4800
+ STAINLESS STEEL (INOX) - SINGLE PACKS
+Cat. No
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade 
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth Direction
+Tooth Geometry Tooth 
+Angle
+N MAX 
+RPM
+DT1921-QZ
+355
+25.4
+1.75
+2.15
+Full
+70
+Anti-clockwise
+MTCG+R  10° 1800
+DT1922-QZ
+355
+25.4
+1.75
+2.15
+Full
+90
+Anti-clockwise
+MTCG+R  10° 1800
+STEEL - SINGLE PACKS 
+Cat. No
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade 
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth Direction
+Tooth 
+Geometry
+Tooth 
+Angle
+N MAX 
+RPM
+DT1923-QZ
+140
+20
+1.13
+1.0
+Full
+30
+Clockwise
+TCG
+ 1.5° 4200
+DT1926-QZ
+355
+25.4
+1.95
+2.31
+Full
+66
+Clockwise
+TCG
+ 1.5° 1800
+DT1927-QZ
+355
+25.4
+1.95
+2.31
+Full
+90
+Clockwise
+TCG
+ 1.5° 1800

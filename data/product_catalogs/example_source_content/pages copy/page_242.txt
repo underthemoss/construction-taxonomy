@@ -1,0 +1,73 @@
+C 116
+ABRASIVE MESH
+ 
+ 
+ABRASIVE MESH 
+DETAIL SANDER
+ 
+FOR USE WITH 
+ 
+ Detail sander or  
+DEWALT® multi tool  
+DWE315 / DCS355.
+DELTA SANDER
+ 
+FOR USE WITH 
+ 
+Delta sander from Festool®.
+1/3 SHEET
+ 
+FOR USE WITH 
+ 
+DEWALT®, Makita®.
+100 X 150mm PACKS
+Cat. No.
+Grain size
+Pack Qty.
+DTM8553-QZ
+80
+5
+DTM8554-QZ
+120
+5
+DTM8555-QZ
+240
+5
+93 X 190 PACKS
+Cat. No.
+Grain size
+Pack Qty.
+DTM8655-QZ
+40
+5
+DTM8656-QZ
+60
+5
+DTM8621-QZ
+80
+5
+DTM8622-QZ
+120
+5
+DTM8624-QZ
+240
+5
+93 X 93mm PACKS
+Cat. No.
+Grain size
+Pack Qty.
+DTM8667-QZ
+40
+5
+DTM8668-QZ
+60
+5
+DTM3092-QZ
+80
+5
+DTM3093-QZ
+120
+5
+DTM3095-QZ
+240
+5

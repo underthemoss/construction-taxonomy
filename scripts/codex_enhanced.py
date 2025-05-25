@@ -14,6 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 ATTR_FILE = ROOT / "attributes" / "consolidated_attributes.json"
 EXAMPLES_DIR = ROOT / "examples"
 SCHEMA_DIR = ROOT / "schema"
+CATALOGS_DIR = ROOT / "data" / "product_catalogs"
 ATTR_SCHEMA_FILE = SCHEMA_DIR / "attribute.schema.json"
 BRANCH = f"codex/attr-{datetime.date.today()}"
 

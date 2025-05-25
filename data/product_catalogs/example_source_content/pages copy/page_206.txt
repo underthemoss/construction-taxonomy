@@ -1,0 +1,113 @@
+C 80
+CIRCULAR SAW BLADES
+CONSTRUCTION BLADES FOR PORTABLE CORDLESS SAWS
+APPLICATIONS
+ Nail Tough - ideal for sawing  
+wood with nails.
+FOR USE WITH  
+Cordless saws.
+C2 CONSTRUCTION GRADE CARBIDE 
+Resists chipping and cracking
+THIN KERF 
+Ideal for cordless and less push force required 
+FULL KERF 
+Minimises blade deﬂection for a straighter cut
+ULTRA-SHARP CUTTING EDGES 
+For virtually splinter free cuts
+SINGLE PACKS 
+Cat. No.
+Description
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth  
+Direction
+Tooth 
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT1946-QZ
+Cordless - Fast cutting 
+136
+10
+1
+1.86
+Thin
+16
+Clockwise
+ATB
+20°
+7000
+DT1947-QZ
+Cordless - Framing 
+136
+10
+1
+1.86
+Thin
+24
+Clockwise
+ATB
+20°
+7000
+DT1948-QZ
+Cordless - Fast cutting 
+165
+20
+1
+1.86
+Thin
+16
+Clockwise
+ATB
+20°
+7000
+DT1949-QZ
+Cordless - Framing 
+165
+20
+1
+1.86
+Thin
+24
+Clockwise
+ATB
+20°
+7000
+DT1950-QZ
+Cordless - Framing 
+165
+20
+1
+1.86
+Thin
+36
+Clockwise
+ATB
+20°
+7000
+DT1951-QZ
+Cordless - Framing 
+184
+20
+1.13
+1.79
+Thin
+24
+Clockwise
+ATB
+18°
+7000
