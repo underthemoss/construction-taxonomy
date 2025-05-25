@@ -6,10 +6,17 @@ Brand-Aware Codex attribute proposer:
  u2022 Applies strict schema validation and deduplication
  u2022 Creates a PR for human review
 """
-import subprocess
 import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
 from typing import Dict, List, Set, Any, Optional, Tuple
 from collections import defaultdict
+
+# Support both openai <1 and >=1
+try:
+    from openai import OpenAI  # type: ignore
+    _OPENAI_CLIENT = OpenAI()
+    _USE_CLIENT = True
+except ImportError:  # old sdk
+    _USE_CLIENT = False
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 ATTR_FILE = ROOT / "attributes" / "consolidated_attributes.json"
@@ -310,19 +317,33 @@ def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, 
     )
     
     # Call OpenAI API
-    rsp = openai.ChatCompletion.create(
-        model="gpt-4o-preview",
-        messages=[
-            {"role":"system","content":"You are an expert taxonomy curator for construction equipment. You understand the distinction between brand-specific and physics-based attributes."},
-            {"role":"user","content": prompt}
-        ],
-        temperature=0.2,
-        max_tokens=1000
-    )
+    model_name = os.getenv("OPENAI_MODEL", "gpt-4o")
+    if _USE_CLIENT:
+        rsp = _OPENAI_CLIENT.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": "You are an expert taxonomy curator for construction equipment. You understand the distinction between brand-specific and physics-based attributes."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=1000
+        )
+        content = rsp.choices[0].message.content
+    else:
+        rsp = openai.ChatCompletion.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": "You are an expert taxonomy curator for construction equipment. You understand the distinction between brand-specific and physics-based attributes."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=1000
+        )
+        content = rsp.choices[0].message.content
     
     # Parse and validate response
     try:
-        raw = rsp.choices[0].message.content.strip()
+        raw = content.strip()
         parsed = json.loads(raw)
         return parsed.get("new_attributes", {})
     except Exception as e:
