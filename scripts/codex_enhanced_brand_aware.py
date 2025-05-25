@@ -344,6 +344,12 @@ def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, 
     # Parse and validate response
     try:
         raw = content.strip()
+        # Remove markdown fences if present (```json ... ```)
+        if raw.startswith("```"):
+            raw = re.sub(r"^```[a-zA-Z0-9]*\n", "", raw)  # drop opening fence
+            if raw.endswith("```"):
+                raw = raw[:-3]
+            raw = raw.strip()
         parsed = json.loads(raw)
         return parsed.get("new_attributes", {})
     except Exception as e:
