@@ -6,7 +6,7 @@
       "name": "Boom Lifts",
       "subcategories": [
         {
-          "name": "Electric Boom Lifts",
+          "name": "Boom Lifts",
           "attributes": [
             { "ref": "max_platform_height", "commonality_threshold": 100 },
             { "ref": "lift_capacity",       "commonality_threshold": 100 },
