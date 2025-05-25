@@ -34,6 +34,35 @@
       "type": "number",
       "unit": "ft",
       "category": "physics"
+    },
+    "power_input": {
+      "name": "Power Input",
+      "type": "number",
+      "category": "physics",
+      "unit": "W"
+    },
+    "cutting_capacity": {
+      "name": "Cutting Capacity",
+      "type": "number",
+      "category": "physics",
+      "unit": "mm"
+    },
+    "battery_type": {
+      "name": "Battery Type",
+      "type": "string",
+      "category": "brand"
+    },
+    "tool_weight": {
+      "name": "Tool Weight",
+      "type": "number",
+      "category": "physics",
+      "unit": "kg"
+    },
+    "noise_level": {
+      "name": "Noise Level",
+      "type": "number",
+      "category": "physics",
+      "unit": "dB"
     }
   }
 }
