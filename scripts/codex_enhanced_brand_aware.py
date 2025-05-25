@@ -434,7 +434,12 @@ def main():
     # Commit and push changes
     git("add", str(ATTR_FILE))
     git("commit", "-m", f"feat(codex): add attributes {', '.join(valid_attrs.keys())}")
-    git("push", "-f", "origin", BRANCH)
+    token = os.getenv("GITHUB_TOKEN")
+    if token:
+        remote_url = f"https://x-access-token:{token}@github.com/underthemoss/construction-taxonomy.git"
+        git("push", "-f", remote_url, BRANCH)
+    else:
+        git("push", "-f", "origin", BRANCH)
     
     # Create or update PR
     repo = os.getenv("GITHUB_REPOSITORY", "underthemoss/construction-taxonomy")
