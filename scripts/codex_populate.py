@@ -33,11 +33,12 @@ def ask_codex(prompt: str) -> str:
         {"role": "system", "content": "You are an expert taxonomy curator."},
         {"role": "user", "content": prompt},
     ]
+    model_name = os.getenv("OPENAI_MODEL", "gpt-4o")
     # New client (openai>=1.0) exposes OpenAI class
     if hasattr(openai, "OpenAI"):
         client = openai.OpenAI()  # api_key is read from env var
         rsp = client.chat.completions.create(
-            model="gpt-4o-preview",
+            model=model_name,
             messages=messages,
             temperature=0.2,
             max_tokens=800,
@@ -45,7 +46,7 @@ def ask_codex(prompt: str) -> str:
         return rsp.choices[0].message.content.strip()
     # Fallback to old API (<1.0)
     rsp = openai.ChatCompletion.create(
-        model="gpt-4o-preview",
+        model=model_name,
         messages=messages,
         temperature=0.2,
         max_tokens=800,
