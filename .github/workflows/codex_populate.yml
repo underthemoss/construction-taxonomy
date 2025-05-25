@@ -11,6 +11,9 @@ on:
 jobs:
   populate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows pushing
+      pull-requests: write  # Allows PR creation
     steps:
       - uses: actions/checkout@v4
         with:
