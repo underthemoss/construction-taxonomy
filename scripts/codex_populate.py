@@ -8,7 +8,7 @@ Codex attribute proposer:
 """
 import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
 from typing import Any, Dict
-from scripts.constants import classify_attr
+from constants import classify_attr
 
 ROOT       = pathlib.Path(__file__).resolve().parents[1]
 ATTR_FILE  = ROOT / "attributes" / "consolidated_attributes.json"
@@ -17,6 +17,9 @@ BRANCH     = f"codex/attr-{datetime.date.today()}"
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# detect dry-run argument
+DRY_RUN = "--dry-run" in sys.argv
+
 def git(*args):
     subprocess.check_call(["git", *args], cwd=ROOT, stdout=subprocess.DEVNULL)
 
@@ -24,15 +27,28 @@ def load_attributes():
     with ATTR_FILE.open() as f:
         return json.load(f)
 
-def ask_codex(prompt):
+def ask_codex(prompt: str) -> str:
+    """Call OpenAI Chat API compatible with both <1.0 and >=1.0 clients."""
+    messages = [
+        {"role": "system", "content": "You are an expert taxonomy curator."},
+        {"role": "user", "content": prompt},
+    ]
+    # New client (openai>=1.0) exposes OpenAI class
+    if hasattr(openai, "OpenAI"):
+        client = openai.OpenAI()  # api_key is read from env var
+        rsp = client.chat.completions.create(
+            model="gpt-4o-preview",
+            messages=messages,
+            temperature=0.2,
+            max_tokens=800,
+        )
+        return rsp.choices[0].message.content.strip()
+    # Fallback to old API (<1.0)
     rsp = openai.ChatCompletion.create(
         model="gpt-4o-preview",
-        messages=[
-            {"role":"system","content":"You are an expert taxonomy curator."},
-            {"role":"user",  "content": prompt}
-        ],
+        messages=messages,
         temperature=0.2,
-        max_tokens=800
+        max_tokens=800,
     )
     return rsp.choices[0].message.content.strip()
 
@@ -107,7 +123,7 @@ def build_prompt(current_attrs, specs):
     )
     return prompt
 
-def propose():
+def propose(dry: bool = False):
     data = load_attributes()
     existing = set(data["attributes"].keys())
 
@@ -128,21 +144,27 @@ def propose():
         return None
     if not new_attrs:
         return None
-    data["attributes"].update(new_attrs)
+    if not dry:
+        data["attributes"].update(new_attrs)
 
-    # write back: consolidated file or per-file
-    if ATTR_FILE.exists():
-        with ATTR_FILE.open("w") as f:
-            json.dump(data, f, indent=2)
-    else:
-        attr_dir = ROOT / "attributes"
-        attr_dir.mkdir(exist_ok=True)
-        for code, obj in new_attrs.items():
-            with (attr_dir / f"{code}.json").open("w") as f:
-                json.dump(obj, f, indent=2)
+        # write back: consolidated file or per-file
+        if ATTR_FILE.exists():
+            with ATTR_FILE.open("w") as f:
+                json.dump(data, f, indent=2)
+        else:
+            attr_dir = ROOT / "attributes"
+            attr_dir.mkdir(exist_ok=True)
+            for code, obj in new_attrs.items():
+                with (attr_dir / f"{code}.json").open("w") as f:
+                    json.dump(obj, f, indent=2)
     return new_attrs.keys()
 
 def main():
+    if DRY_RUN:
+        print("[Dry-Run] Parsing catalogs and querying Codex…\n")
+        added = propose(dry=True)
+        print("\n[Done] No files written. Suggested attribute codes:", list(added) if added else "none")
+        return
     git("fetch", "origin")
     try:
         git("checkout", BRANCH)
