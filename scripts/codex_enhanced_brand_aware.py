@@ -6,7 +6,7 @@ Brand-Aware Codex attribute proposer:
  u2022 Applies strict schema validation and deduplication
  u2022 Creates a PR for human review
 """
-import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
+import json, os, datetime, pathlib, requests, openai, sys, re
 from typing import Dict, List, Set, Any, Optional, Tuple
 from collections import defaultdict
 
@@ -332,10 +332,7 @@ def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, 
 def main():
     # Set up branch
     git("fetch", "origin")
-    try:
-        git("checkout", BRANCH)
-    except subprocess.CalledProcessError:
-        git("checkout", "-b", BRANCH)
+    git("checkout", "-B", BRANCH)
     
     # Load existing data
     attrs_data = load_attributes()
@@ -411,8 +408,7 @@ def main():
     repo = os.getenv("GITHUB_REPOSITORY", "underthemoss/construction-taxonomy")
     gh_token = os.getenv("GITHUB_TOKEN")
     if not gh_token:
-        # Dynamically fetch installation token using helper
-        import subprocess
+        # GITHUB_TOKEN fetched via helper script; uses global subprocess module
         helper = pathlib.Path(__file__).with_name("get_installation_token.py")
         gh_token = subprocess.check_output(
             ["python", str(helper)],
