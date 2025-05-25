@@ -7,6 +7,9 @@ Codex attribute proposer:
  • Opens (or updates) a PR via GitHub API
 """
 import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
+from typing import Any, Dict
+from scripts.constants import classify_attr
+
 ROOT       = pathlib.Path(__file__).resolve().parents[1]
 ATTR_FILE  = ROOT / "attributes" / "consolidated_attributes.json"
 CATALOG_DIR = ROOT / "data" / "product_catalogs"
@@ -63,6 +66,8 @@ def extract_specs(text: str):
         if alt:
             spec["alt_value"] = float(alt.group("val").replace(',', ''))
             spec["alt_unit"] = alt.group("unit")
+        # determine category using heuristics
+        spec["category"] = classify_attr(name, rhs)
         specs.append(spec)
     return specs
 
@@ -81,7 +86,19 @@ def build_prompt(current_attrs, specs):
         "* Maximum Dig Depth: 24 ft 1 in (7.34 m)\n"
         "* Maximum Reach at Ground Level: 35 ft 10 in (10.92 m)\n"
     )
+    rules_block = (
+        "## ATTRIBUTE CATEGORISATION RULES\n"
+        "• \"physics\" attributes measure properties of matter, energy, geometry, or performance.\n"
+        "  - always numeric and/or carry SI or Imperial units (kg, lb, ft, psi, kW, V …).\n"
+        "  - examples: Operating Weight, Engine Power, Lift Capacity, Voltage, Track Width.\n"
+        "• \"brand\" attributes identify a specific manufacturer, part, or marketing label.\n"
+        "  - usually strings or codes: Manufacturer, Model Number, Series, Part ID.\n"
+        "• NEVER mark an attribute with units as \"brand\".\n"
+        "• NEVER mark a manufacturer / model as \"physics\".\n"
+        "Return `category` exactly \"physics\" or \"brand\".\n"
+    )
     prompt = (
+        f"{rules_block}\n\n" +
         f"{schema_reminder}\n\n"
         f"{excavator_example}\n\n"
         "KNOWN ATTRIBUTES (JSON):\n" + json.dumps(current_attrs, indent=2) + "\n\n" +
