@@ -128,18 +128,23 @@ def propose(dry: bool = False):
     data = load_attributes()
     existing = set(data["attributes"].keys())
 
-    # load one sample catalog text (first file)
-    sample_text = ""
-    sample_path = next(CATALOG_DIR.rglob("*.txt"), None)
-    if sample_path and sample_path.exists():
-        sample_text = sample_path.read_text(errors="ignore")
-    specs = extract_specs(sample_text)
+    # parse ALL catalog pages under data/product_catalogs
+    texts = [p.read_text(errors="ignore") for p in CATALOG_DIR.rglob("*.txt")]
+    specs = []
+    for txt in texts:
+        specs.extend(extract_specs(txt))
 
     prompt = build_prompt(data["attributes"], specs)
     try:
         raw = ask_codex(prompt)
         print("===== RAW CODEX REPLY =====\n", raw, "\n===========================")
-        parsed = json.loads(raw)
+        # remove markdown fences if present
+        cleaned = raw.strip()
+        if cleaned.startswith("```"):
+            cleaned = re.sub(r"^```[a-zA-Z0-9_-]*\n", "", cleaned)
+            if cleaned.endswith("```"):
+                cleaned = cleaned[:-3]
+        parsed = json.loads(cleaned)
         new_attrs = {k:v for k,v in parsed["new_attributes"].items() if k not in existing}
     except Exception as e:
         print("Codex reply unparsable:", e)
