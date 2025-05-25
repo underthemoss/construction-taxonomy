@@ -1,0 +1,407 @@
+C 78
+CIRCULAR SAW BLADES
+ 
+ 
+CIRCULAR SAW BLADES
+FOR USE WITH 
+Portable and stationary  
+circular saws.
+C3 NEXT GENERATION CARBIDE 
+Up to 3 regrinds & 2x life (vs Construction range)
+RESIN FILLED EXPANSION SLOTS 
+Dampen noise and vibration
+THIN KERF 
+Ideal for cordless and less push force required 
+FULL KERF 
+Minimises blade deﬂection for a straighter cut
+ULTRA-SHARP CARBIDE TEETH 
+Reduces tear out
+OPTIMISED GRIND ANGLES 
+Reduces tear out
+SINGLE PACKS
+Cat. No.
+Blade Ø 
+mm
+Bore Ø 
+mm
+Blade 
+thickness 
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth  
+Direction
+Tooth  
+Geometry
+Tooth  
+angle
+N MAX RPM
+DT20434-QZ*
+140
+20
+2
+2.75
+Thin
+60
+Clockwise
+ATB
+7°
+4800
+DT10624-QZ
+165
+16/20
+0.99
+1.65
+Thin
+24
+Clockwise
+ATB
+18°
+7000
+DT10640-QZ
+165
+16/20
+0.99
+1.65
+Thin
+40
+Clockwise
+ATB
+18°
+7000
+DT10300-QZ
+165
+20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT10301-QZ
+165
+20
+0.99
+1.65
+Thin
+40
+Anti-clockwise
+ATB
+18°
+7000
+DT10302-QZ
+184
+16
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT10303-QZ
+184
+16
+0.99
+1.65
+Thin
+40
+Anti-clockwise
+ATB
+18°
+7000
+DT1669-QZ
+184
+16
+0.99
+1.65
+Thin
+24
+Clockwise
+ATB
+7°
+7000
+DT1668-QZ
+184
+16
+0.99
+1.65
+Thin
+40
+Clockwise
+ATB
+7°
+7000
+DT90257-QZ
+184
+16/20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT90259-QZ
+184
+16/20
+0.99
+1.65
+Thin
+40
+Anti-clockwise
+ATB
+18°
+7000
+DT1670-QZ
+184
+30
+0.99
+1.65
+Thin
+24
+Clockwise
+ATB
+7°
+7000
+DT10304-QZ
+190
+30
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT20432-QZ**
+210
+30
+2
+2.75
+Thin
+60
+Clockwise
+ATB
+7°
+4800
+DT20433-QZ**
+210
+30
+2
+2.75
+Thin
+60
+Clockwise
+ATB
+7°
+4800
+DT1655-QZ
+216
+30
+1.6
+2.35
+Thin
+60
+Clockwise
+ATB
+7°
+7000
+DT90262-QZ
+216
+16/25/30
+1.6
+2.35
+Standard
+60
+Clockwise
+ATB
+7°
+4800
+DT1042-QZ
+305
+30
+2
+2.75
+Thin
+60
+Clockwise
+ATB
+7°
+4800
+ 
+ 
+DEMOLITION SAW BLADE
+SINGLE PACKS
+Cat. No.
+Blade Ø 
+mm
+Bore Ø 
+mm
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth  
+Direction
+Tooth  
+Geometry
+Tooth  
+angle
+N MAX  
+RPM
+DT4395-QZ
+190
+30
+1.6
+1.6
+24
+Anti-clockwise
+ATB
+18°
+DT90254-QZ
+184
+20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18° 7000
+APPLICATIONS
+ Nail Tough - ideal for sawing  
+wood with nails.
+FOR USE WITH  
+Compatible with portable circular saws that 
+use a 190mm blade with a 30mm bore.
+SETS
+Cat. No.
+Description
+Blade Ø 
+mm
+Bore Ø 
+mm
+Blade 
+thickness 
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth  
+Direction
+Tooth  
+Geometry
+Tooth  
+angle
+N MAX 
+RPM
+DT10397-QZ
+2 x (165 x 20 x 24T)  
+1 x (165 x 20 x 40T)
+165
+20
+0.99
+1.65
+Thin
+24, 40
+Anti-clockwise
+ATB
+18°
+7000
+DT90260-QZ 
+1 x (184 x 20 x 24T) 
+1 x (184 x 20 x 40T)
+184
+20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT90261-QZ
+3 x (184 x 20 x 24T)
+184
+20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+DT10399-QZ
+3 x 190 24T Corded
+190
+30
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000
+*Supports the DCS571 - 18V XR BRUSHLESS 115mm Circular Saw
+**Supports the DWE7485 - 210mm Compact Table Saw
+BULK
+Cat. No.
+Description
+Blade Ø 
+mm
+Bore Ø 
+mm
+Blade 
+thickness 
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth  
+Direction
+Tooth  
+Geometry
+Tooth  
+angle
+N MAX 
+RPM
+DT90258-QZ
+(184 x 20 x 24T) 
+184
+20
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18°
+7000

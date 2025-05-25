@@ -1,0 +1,173 @@
+ 19
+XR SYSTEM, 18 V
+A 19
+Technical data 
+DCF892P2T
+DCF892NT
+Battery
+XR 5.0 Ah
+–
+Power output
+760 W
+No load speed
+0–2,000 rpm
+No-load Impact rate
+0–3,250 ipm
+Torque
+Precision Wrench™ mode
+812 Nm
+Low mode 
+136 Nm
+Medium mode 
+406 Nm
+High mode
+812 Nm
+Max. breaking torque
+1,152 Nm
+Tool fastening 
+1/2” with detent pin
+Weight without battery
+1.67 kg
+Brushless impact wrench 18 V – 1/2” 
+DCF896NT / DCF896HNT
+• The tool is equipped with a completely new thread cutting mode, 
+using the Tool Connect app.
+• Application control achieved with 3 RPM and torque settings.
+• Comes in a TSTAK toolbox without battery and charger.
+• DCF896NT: With detent pin
+• DCF896HNT: With hog ring.
+Brushless impact wrench 18 V – for cutting Tool Connect thread
+Technical data 
+DCF896NT
+DCF896HNT
+Battery
+–
+–
+Power output
+580 W
+No load speed
+0–2,000 rpm
+No-load Impact rate
+0–3,100 ipm
+Torque
+447 Nm
+Max. breaking torque
+813 Nm
+Tool fastening
+1/2”
+Max. bolt diameter
+M18
+Weight without battery
+1.6 kg
+1/2”
+detent pin
+Attachment for DCF896
+1/2”
+hog ring 
+Attachment DCF896H
+DCF899P2 / DCF899NT
+• Powerful fan cooled motor. 
+• 3 speeds and torque adjustment.
+• Bright light from LEDs. 
+• Top breaking torque of 1625 Nm for loosening stubborn screws.
+• DCF899NT: Comes in a TSTAK toolbox without battery and 
+charger.
+Technical data 
+DCF899P2
+DCF899NT
+Battery
+XR 5.0 Ah 
+–
+Output power
+610 W
+Idle speed
+0–400 / 1,200 / 1,900 rpm
+No-load Impact rate
+0–2,400 ipm
+Torque
+135 / 400 / 950 Nm
+Max. breaking torque
+1625 Nm
+Max. bolt diameter
+M20
+Tool fastening
+1/2” with detent pin
+Weight without battery
+2.62 kg
+High-torque impact wrench 18 V 1/2”
+1/2”
+detent pin
+1/2”
+detent pin
+DCF892P2T / DCF892NT
+• Touch controller for mode, speed and LED • Allows the user to set 
+the specific mode, regulate RPM or adjust LED brightness • Precision 
+Wrench™ mode: Speed will decrease when loosening a screw. When 
+tightening the fastener, machine will stop for 0,5 sec after reaching the 
+end of thread and then continue tightening. Machine body made of 
+GFN plastic for longer life and increased resistance to oil, chemicals 
+and shock. • Optimized shock mechanism Provides a breaking torque 
+up to 1152 Nm for loosening nuts.
+• DCF892NT: Comes in a Tstak toolbox without battery and charger.
+DCF897NT
+• Powerful fan-cooled motor. 
+• 3 speeds and torque adjustment. 
+• Bright light from LEDs. 
+• Top breaking torque of 1625 Nm for loosening stubborn screws. 
+• Comes in a Tstak toolbox without battery and charger.
+• DCF897NT: Comes in a TSTAK toolbox without battery and 
+charger.
+High-torque impact wrench 18 V 3/4”
+Technical data:
+DCF897NT
+Battery
+–
+Output power
+610 W
+Idle speed
+0–400 / 1,200 / 1,900 rpm
+No-load Impact rate
+0–2,400 ipm
+Torque
+135 / 400 / 950 Nm
+Max. breaking torque
+1625 Nm
+Max. bolt diameter
+M20
+Tool fastening
+3/4” detent pin
+Weight without battery
+2.6 kg
+DCF899HP2 / DCF899HNT
+• Powerful fan cooled motor. 
+• 3 speeds and torque adjustment.
+• Bright light from LEDs. 
+• Top breaking torque of 1625 Nm for loosening stubborn screws.
+• DCF899NT: Comes in a TSTAK toolbox without battery and 
+charger.
+Technical data 
+DCF899HP2
+DCF899HNT
+Battery
+XR 5.0 Ah 
+–
+Output power
+610 W
+Idle speed
+0–400 / 1,200 / 1,900 rpm
+No-load Impact rate
+0–2,400 ipm
+Torque
+135 / 400 / 950 Nm
+Max. breaking torque
+1625 Nm
+Max. bolt diameter
+M20
+Tool fastening
+1/2” hog ring
+Weight without battery
+2.62 kg
+High-torque impact wrench 18 V 1/2”
+1/2”
+hog ring 
+Replaces DCF894

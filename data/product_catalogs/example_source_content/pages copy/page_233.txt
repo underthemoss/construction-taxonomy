@@ -1,0 +1,233 @@
+C 107
+BAND SAW BLADES
+ 
+FEATURES  
+•  Saw blades made of high quality, tempered steel. 
+•  Extremely sharpened and hardened teeth allow  
+cleanest cuts.
+•  Specially hardened teeth.
+ 
+ FOR USE WITH
+ 
+DW738, DW739, DW876 and DCS371.
+BAND SAW BLADES
+MULTI PACKS
+Cat. No.
+Application
+Suitable for
+Blade 
+Length 
+mm
+Cant  
+Angle
+Tooth  
+Kerf  
+mm
+Blade  
+Thickness  
+mm
+Pack  
+Qty.
+DT8460-QZ
+Metal 6.35-9.52mm 
+aluminum, stainless  
+steel, plastic
+DCS371
+835
+12
+0.5
+1.8
+4
+DT8461-QZ
+Metal 3.97-6.35mm 
+aluminum, stainless  
+steel, plastic
+DCS371
+835
+12
+0.5
+1.4
+4
+DT8462-QZ
+Metal up to 3.97mm 
+aluminum, stainless  
+steel, plastic
+DCS371
+835
+12
+0.5
+1.05
+4
+DT8463-QZ
+Metal 6.35-9.52mm 
+aluminum, stainless  
+steel, plastic
+DCS371
+835
+12
+0.5
+1.8/1.4 4
+DT8468-QZ
+18TPI Bandsaw Blade
+DCS377
+690
+18
+0.5
+1.8/1.4 3
+SINGLE PACKS
+Cat. No.
+Application
+Suitable for
+Blade 
+Length
+mm
+Cant  
+Angle
+Tooth  
+Kerf  
+mm
+Blade  
+Thickness  
+mm
+Pack  
+Qty.
+DT8480-QZ
+Wood-fretsaw blade
+DW738 
+DW739
+2095
+3
+0.6
+4.2
+1
+DT8481-QZ
+General purpose blade 
+DW738 
+DW739
+2095
+12
+0.6
+4.2
+1
+DT8482-QZ
+Wood - thick cuts
+DW738 
+DW739
+2095
+16
+0.6
+6.4
+1
+DT8483-QZ
+Wood - contour / scroll
+DW738 
+DW739
+2095
+6
+0.6
+3.2
+1
+DT8484-QZ
+Non-ferrous metals - thin cuts DW738 
+DW739
+2095
+6
+0.6
+1.8
+1
+DT8485-QZ
+Non-ferrous metal - thick cuts DW738 
+DW739
+2095
+12
+0.6
+3.2
+1
+DT8486-QZ
+Wood, laminate and formica
+DW738 
+DW739
+2095
+10
+0.6
+3.2
+1
+SINGLE PACKS
+Cat. No.
+Application
+Suitable for
+Blade 
+Length
+mm
+Cant  
+Angle
+Tooth  
+Kerf  
+mm
+Blade  
+Thickness  
+mm
+Pack  
+Qty.
+DT8470-QZ
+Wood - Fretsaw blade
+DW876
+2215
+4
+0.6
+1.8
+1
+DT8471-QZ
+Wood - contour / scroll
+DW876
+2215
+6
+0.4
+4.2
+1
+DT8472-QZ
+Wood - rip and cross-cut
+DW876
+2215
+10
+0.4
+4.2
+1
+DT8473-QZ
+Wood - fast rip cuts,  
+medium composites
+DW876
+2215
+16
+0.6
+6.4
+1
+DT8474-QZ
+Wood - fast rip cuts  
+in thick wood
+DW876
+2215
+20
+0.6
+6.4
+1
+DT8475-QZ
+Non-ferrous metal -  
+thin steel section cuts
+DW876
+2215
+6
+0.6
+1.4
+1
+DT8476-QZ
+Non-ferrous metal -  
+thick steel section cuts
+DW876
+2215
+12
+0.6
+1.8
+1
+Tooth
+Blade

@@ -1,0 +1,366 @@
+C 79
+CIRCULAR SAW BLADES
+ 
+ 
+CIRCULAR SAW BLADES
+FOR USE WITH 
+XR FlexVolt range and all compatible 
+corded and cordless circular saws, 
+mitre saws and table saws.
+ CIRCULAR SAW BLADES
+OPTIMISED FOR CORDLESS 
+Up to 2x more cuts per charge  
+and ideal for FlexVolt tools
+C3 NEXT GENERATION CARBIDE 
+Up to 3 regrinds
+THIN KERF 
+Ideal for cordless and less push force required 
+FULL KERF 
+Minimises blade deﬂection for a straighter cut
+EXPANSION SLOTS 
+Dampen noise and vibration
+PATENTED GRIND ANGLES 
+For faster cuts with lower force
+BLADES
+SINGLE PACKS
+Cat. No.
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade  
+thickness 
+mm
+Kerf  
+thickness 
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth Direction
+Tooth  
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT99560-QZ
+165
+20
+1.2
+1.76
+Thin
+24
+Anti-clockwise ATB+R
+10°
+7000
+DT99561-QZ
+165
+20
+1.2
+1.76
+Thin
+42
+Anti-clockwise ATB+R
+10°
+7000
+DT99562-QZ
+190
+30
+0.82
+1.55
+Thin
+24
+Anti-clockwise ATB+R
+25°
+7000
+DT99563-QZ
+190
+30
+0.82
+1.55
+Thin
+36
+Anti-clockwise ATB+R
+25°
+7000
+DT99577-QZ
+184
+20
+0.82
+1.55
+Thin
+24
+Anti-clockwise ATB+R
+25°
+7000
+DT99578-QZ
+184
+20
+0.82
+1.55
+Thin
+36
+Anti-clockwise ATB+R
+25°
+7000
+DT99579-QZ
+184
+20
+0.82
+1.55
+Thin
+60
+Anti-clockwise ATB+R
+25°
+7000
+DT99565-QZ
+210
+30
+1.24
+1.8
+Thin
+24
+Clockwise
+ATB+R
+20°
+7000
+DT99566-QZ
+210
+30
+1.24
+1.8
+Thin
+36
+Clockwise
+ATB+R
+20°
+7000
+DT99567-QZ
+210
+30
+1.24
+1.8
+Thin
+60
+Clockwise
+ATB+R
+20°
+7000
+DT99568-QZ
+216
+30
+1.6
+2.16
+Thin
+24
+Clockwise
+ATB+R
+7°
+7000
+DT99569-QZ
+216
+30
+1.6
+2.16
+Thin
+36
+Clockwise
+ATB+R
+7°
+7000
+DT99570-QZ
+216
+30
+1.6
+2.16
+Thin
+60
+Clockwise
+ATB+R
+7°
+7000
+DT99571-QZ
+250
+30
+1.6
+2.16
+Thin
+24
+Clockwise
+ATB+R
+7°
+6000
+DT99572-QZ
+250
+30
+1.6
+2.16
+Thin
+36
+Clockwise
+ATB+R
+7°
+6000
+DT99573-QZ
+250
+30
+1.6
+2.16
+Thin
+60
+Clockwise
+ATB+R
+7°
+6000
+DT99574-QZ
+305
+30
+1.6
+2.16
+Thin
+42
+Clockwise
+ATB+R
+7°
+4800
+DT99575-QZ
+305
+16/20/25/25.4/30
+1.6
+2.16
+Thin
+60
+Clockwise
+ATB+R
+7°
+4800
+DT99576-QZ
+305
+16/20/25/25.4/30
+1.6
+2.16
+Thin
+78
+Clockwise
+ATB+R
+7°
+4800
+DT99595-QZ
+305
+25.4
+1.6
+2.16
+Thin
+60
+Clockwise
+ATB+R
+7°
+4800
+DT99596-QZ 
+305
+25.4
+1.6
+2.16
+Thin
+78
+Clockwise
+ATB+R
+7°
+4800
+DIAMOND BORE SINGLE PACKS
+Cat. No.
+Blade Ø  
+mm
+Bore Type
+Blade  
+thickness  
+mm
+Kerf  
+thickness 
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth Direction
+Tooth  
+Geometry
+Tooth 
+Angle
+N MAX 
+RPM
+DT40270
+190
+ļ
+1.0
+1.55
+Thin
+24
+Clockwise
+ATB+R
+25°
+7000
+DT40271
+190
+ļ
+1.0
+1.55
+Thin
+36
+Clockwise
+ATB+R
+25°
+7000
+ 
+ 
+COMPOSITE DECKING SAW BLADE
+APPLICATIONS
+Specially designed to cut  
+composite decking.
+FOR USE WITH  
+Compatible with portable circular saws that 
+use a 190mm blade with a 30mm bore.
+SINGLE PACKS
+Cat. No.
+Blade Ø  
+mm
+Bore Type
+Blade  
+thickness  
+mm
+Kerf  
+thickness 
+mm
+Kerf  
+Type
+No of  
+teeth
+Tooth Direction
+Tooth  
+Geometry
+Tooth Angle
+N MAX RPM
+DT90255-QZ
+184
+20
+0.99
+1.65
+Thin
+40
+Anti-Clockwise
+TCG
+7°
+7000
+DT4394-QZ
+190
+30
+0.99
+1.6
+Thin
+40
+Anti-Clockwise
+TCG
+7°
+7,000

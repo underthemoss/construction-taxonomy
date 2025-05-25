@@ -1,10 +1,9 @@
 {
-
   "name": "Electric Boom Lift – Generic 30 ft",
   "category": "Electric Boom Lifts",
   "attributes": [
-    { "name": "Max Platform Height", "value": 30, "unit": "ft" },
-    { "name": "Lift Capacity",       "value": 500, "unit": "lb" }
+    { "attribute": "max_platform_height", "value": 30 },
+    { "attribute": "lift_capacity", "value": 500 }
   ],
   "source": "tenant_generated",
   "status": "pending_review"

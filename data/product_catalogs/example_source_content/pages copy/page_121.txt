@@ -1,0 +1,38 @@
+B 17
+FASTENING AND CLAMPING
+Catalogue number
+Description
+DWHT0-83192
+large clamp – 150 mm, clamping force 135 kg
+DWHT0-83193
+large clamp – 300 mm, clamping force 135 kg
+DWHT0-83194
+large clamp – 600 mm, clamping force 135 kg
+DWHT0-83195
+large clamp – 910 mm, clamping force 135 kg
+Catalogue number
+Description
+DWHT0-83185
+XL clamp – 300 mm, clamping force 272 kg
+DWHT0-83186
+XL clamp – 600 mm, clamping force 272 kg
+DWHT0-83187
+XL clamp – 910 mm, clamping force 272 kg
+Catalogue number
+Description
+DWHT83831-1
+Parallel bar clamp – 600 mm, clamping force 680 kg
+DWHT83832-1
+Parallel bar clamp – 1200 mm, clamping force 680 kg
+Catalogue number
+Description
+DWHT83850-1
+Metalworking bar clamp – 300 mm, clamping force 500 kg
+Catalogue number
+Description
+DWHT83839-0
+Band clamp – 4.5 m, clamping force 454 kg
+DWHT83840-0
+90-degree corner clamp, clamping force 90 kg
+DWHT83853-0
+90-degree angle clamp, clamping force 113 kg

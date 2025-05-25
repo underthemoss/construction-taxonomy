@@ -1,0 +1,552 @@
+C 81
+CIRCULAR SAW BLADES
+CONSTRUCTION BLADES FOR STATIONARY SAWS
+ 
+FEATURES 
+•  Extremely robust, nail-resistant 
+construction saw blades for the 
+toughest requirements. 
+•  Designed for use on stationary 
+circular saws for cutting natural 
+woods and composite materials 
+such as formwork, they enable 
+simple to good lateral and 
+longitudinal cutting results.
+ 
+FOR USE WITH 
+ 
+Stationary saws.
+CONSTRUCTION BLADES FOR CORDED PORTABLE HAND SAWS
+ 
+FEATURES 
+•  Extremely robust, solid 
+construction site sheets for the 
+toughest requirements. 
+•  Designed for rapid cutting of 
+natural woods and composites, 
+as well as formwork. 
+•  Ideal for simple to good 
+transverse and longitudinal 
+cutting results.
+SINGLE PACKS 
+Cat. No.
+Description
+Blade Ø  
+mm
+Bore Ø  
+mm
+Reduction 
+Ring
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth  
+Direction
+Tooth 
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT1938-QZ
+Stationary - Fast cut 
+184
+16
+1.7
+2.6
+Full
+18
+Clockwise
+ATB
+20°
+7000
+DT1939-QZ
+Stationary - Framing 
+184
+16
+1.2
+1.8
+Thin
+24
+Clockwise
+ATB
+16°
+7000
+DT1940-QZ
+Stationary - General purpose 
+184
+16
+1.7
+2.6
+Full
+30
+Clockwise
+ATB
+10°
+7000
+DT90251-QZ Const. CSB 184x24T (20/16mm) 184
+20
+16
+0.99
+1.65
+Thin
+24
+Anti-clockwise ATB
+18°
+7000
+DT90252-QZ Const. CSB 184x36T (20/16mm) 184
+20
+16
+0.99
+1.65
+Thin
+36
+Anti-clockwise ATB
+15°
+7000
+DT1952-QZ
+Stationary - Fast rip 
+216
+30
+1.7
+2.6
+Full
+24
+Clockwise
+ATB
+ -5°
+7000
+DT1953-QZ
+Stationary - General purpose 
+216
+30
+1.7
+2.6
+Full
+40
+Clockwise
+ATB
+ -5°
+7000
+DT1956-QZ
+Stationary - Fast rip 
+250
+30
+2
+3
+Full
+24
+Clockwise
+ATB
+10°
+6000
+DT1957-QZ
+Stationary - General purpose 
+250
+30
+2
+3
+Full
+48
+Clockwise
+ATB
+10°
+6000
+DT90249-QZ Const. CSB 254x40T 
+254
+30
+16/25 
+/25.4
+1.75
+2.7
+Std
+40
+Clockwise
+ATB
+7°
+4800
+DT90250-QZ Const. CSB 254x60T 
+254
+30
+16
+1.75
+2.7
+Std
+60
+Clockwise
+ATB
+7°
+4800
+DT1958-QZ
+Stationary - Fast rip 
+305
+30
+2
+3
+Full
+24
+Clockwise
+ATB
+ -5°
+4800
+DT1959-QZ
+Stationary - General purpose 
+305
+30
+2
+3
+Full
+48
+Clockwise
+ATB
+10°
+4800
+DT1960-QZ
+Stationary - Fine ﬁnish 
+305
+30
+2
+3
+Full
+60
+Clockwise
+ATB
+ -5°
+4800
+DT1961-QZ
+Stationary - Fast rip 
+315
+30
+2.2
+3.2
+Full
+24
+Clockwise
+ATB
+20°
+4800
+SETS
+Cat. No.
+Description
+Blade Ø  
+mm
+Bore Ø  
+mm
+Reduction 
+Ring
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth  
+Direction
+Tooth 
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT90253-QZ 2 pack 184x24/36T
+184
+20
+16
+0.99
+1.65
+Thin
+24
+Anti-clockwise
+ATB
+18° 7000
+DT1962-QZ
+216mm 3 pack  
+(2X 24T / 1X 40T)
+216
+30
+1.7
+2.6
+Full
+24/40
+Clockwise
+ATB
+ -5° 7000
+DT1963-QZ
+250mm 3 pack  
+(2X 24T / 1X 48T)
+250
+30
+1.7
+2.6
+Full
+24/48
+Clockwise
+ATB
+10° 6000
+DT1964-QZ
+305mm 3 pack  
+(1X 24T / 1X 48T / 1X 60T)
+305
+30
+2
+3
+Full 24/48/60
+Clockwise
+ATB
+10°/-
+5°
+4800
+SINGLE PACKS 
+Cat. No.
+Description
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth  
+Direction
+Tooth 
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT1930-QZ
+Portable - Framing 
+152
+20
+1.5
+2.4
+Full
+24
+Anti-clockwise
+ATB
+10°
+7000
+DT1931-QZ
+Portable - Fast cut 
+160
+20
+1.5
+2.4
+Full
+18
+Anti-clockwise
+ATB
+20°
+7000
+DT1932-QZ
+Portable - General purpose 
+160
+20
+1.5
+2.4
+Full
+30
+Anti-clockwise
+ATB
+10°
+7000
+DT1933-QZ
+Portable - Fast cut 
+165
+20
+1.5
+2.4
+Full
+18
+Anti-clockwise
+ATB
+20°
+7000
+DT1934-QZ
+Portable - Framing 
+165
+20
+1.2
+1.8
+Thin
+24
+Anti-clockwise
+ATB
+10°
+7000
+DT1935-QZ
+Portable - General purpose
+165
+20
+1.5
+2.4
+Full
+30
+Anti-clockwise
+ATB
+10°
+7000
+DT1936-QZ
+Portable - Fast cut 
+165
+30
+1.5
+2.4
+Full
+18
+Anti-clockwise
+ATB
+20°
+7000
+DT1937-QZ
+Portable - General purpose 
+165
+30
+1.5
+2.4
+Full
+30
+Anti-clockwise
+ATB
+10°
+7000
+DT1941-QZ
+Portable - Fast cut 
+184
+30
+1.7
+2.6
+Full
+18
+Anti-clockwise
+ATB
+20°
+7000
+DT1942-QZ
+Portable - General purpose 
+184
+30
+1.7
+2.6
+Full
+30
+Anti-clockwise
+ATB
+10°
+7000
+DT1943-QZ
+Portable - Fast cut 
+190
+30
+1.7
+2.6
+Full
+18
+Anti-clockwise
+ATB
+20°
+7000
+DT1944-QZ
+Portable - Framing 
+190
+30
+1.7
+2.6
+Full
+24
+Anti-clockwise
+ATB
+16°
+7000
+DT1945-QZ
+Portable - General purpose 
+190
+30
+1.7
+2.6
+Full
+40
+Anti-clockwise
+ATB
+10°
+7000
+DT1954-QZ
+Portable - Fast rip 
+235
+30
+1.7
+2.6
+Full
+24
+Anti-clockwise
+ATB
+20°
+5500
+DT1955-QZ
+Portable - General purpose 
+235
+30
+1.7
+2.6
+Full
+40
+Anti-clockwise
+ATB
+10°
+5500
+PACKS
+Cat. No.
+Description
+Blade Ø  
+mm
+Bore Ø  
+mm
+Blade  
+thickness  
+mm
+Kerf  
+thickness  
+mm
+Kerf  
+Type
+No of  
+Teeth
+Tooth  
+Direction
+Tooth 
+Geometry
+Tooth  
+Angle
+N MAX  
+RPM
+DT1965-QZ
+165mm 3 pack  
+(2x18T 1x 30T)
+165
+20
+1.5
+2.4
+Full
+18 
+30
+Anti-clockwise
+ATB
+20°/10° 7000

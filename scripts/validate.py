@@ -30,6 +30,10 @@ def validate_json_file(file_path, schema):
         try:
             data = json.load(f)
             validate(instance=data, schema=schema)
+            # extra custom rule for attribute files
+            if schema.get("$id") == "attribute.schema.json":
+                if "unit" in data and data.get("category") != "physics":
+                    raise jsonschema.exceptions.ValidationError("Attributes with 'unit' must have category 'physics'")
             return True
         except json.JSONDecodeError as e:
             print(f"Error parsing {file_path}: {e}")
@@ -44,8 +48,21 @@ def validate_attributes():
     success = True
     
     for file_path in ATTRIBUTES_DIR.glob("*.json"):
-        success = validate_json_file(file_path, schema) and success
-    
+        with open(file_path) as f:
+            data = json.load(f)
+        # if consolidated
+        if isinstance(data, dict) and "attributes" in data:
+            for code, attr in data["attributes"].items():
+                try:
+                    validate(instance=attr, schema=schema)
+                    if "unit" in attr and attr.get("category") != "physics":
+                        raise jsonschema.exceptions.ValidationError("Attributes with 'unit' must have category 'physics'")
+                except jsonschema.exceptions.ValidationError as e:
+                    print(f"Validation error in consolidated attribute '{code}': {e}")
+                    success = False
+        else:
+            success = validate_json_file(file_path, schema) and success
+     
     return success
 
 # Validate category files
