@@ -222,6 +222,17 @@ def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[s
                         canonical_name = attr_key
                         if is_physics:
                             canonical_name, subcategory = normalize_physics_attribute(attr_name)
+                            
+                            # Direct mapping override for important physics concepts
+                            # This ensures proper scientific classification even if the normalizer isn't updated
+                            if "weight" in attr_name.lower() or "mass" in attr_name.lower():
+                                subcategory = "mass"  # Weight is a mass property, not dimensional
+                            elif any(dim in attr_name.lower() for dim in ["length", "height", "width", "diameter"]):
+                                subcategory = "dimensions"
+                            elif any(power in attr_name.lower() for power in ["power", "energy", "output"]):
+                                subcategory = "power"
+                            elif any(force in attr_name.lower() for force in ["force", "pressure", "torque"]):
+                                subcategory = "force"
                         else:
                             subcategory = "general"
                             
