@@ -205,18 +205,37 @@ def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[s
                             elif unit_match:
                                 unit = unit_match.group(2).strip()
                         
+                        # Determine if this is a physics attribute
+                        is_physics = is_scientific_attribute(attr_name)
+                        
+                        # Check for brand patterns
+                        brand_patterns = ['model', 'series', 'brand', 'type', 'certification', 'standard', 'warranty']
+                        for pattern in brand_patterns:
+                            if pattern in attr_name.lower():
+                                is_physics = False
+                                break
+                        
+                        # Set category based on classification
+                        category = "physics" if is_physics else "brand"
+                        
+                        # Apply physics normalization if needed
+                        canonical_name = attr_key
+                        if is_physics:
+                            canonical_name, subcategory = normalize_physics_attribute(attr_name)
+                        else:
+                            subcategory = "general"
+                            
                         # Create or update the attribute record
                         if attr_key not in potential_attributes:
                             potential_attributes[attr_key] = {
-                                "name": attr_name.strip() if not is_physics else canonical_name.replace('_', ' ').title(),
+                                "name": attr_name.strip(),
                                 "category": category,
                                 "sources": [str(file_path)],
                                 "count": 1
                             }
                             
-                            # For physics attributes, set the subcategory
-                            if is_physics:
-                                potential_attributes[attr_key]["subcategory"] = subcategory
+                            # Set the subcategory for both physics and brand attributes
+                            potential_attributes[attr_key]["subcategory"] = subcategory
                             
                             # Add unit if available
                             if unit:
