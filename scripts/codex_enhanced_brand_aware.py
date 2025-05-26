@@ -19,7 +19,15 @@ except ImportError:  # old sdk
     _USE_CLIENT = False
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ATTR_FILE = ROOT / "attributes" / "consolidated_attributes.json"
+
+# Attribute directories and files
+ATTR_DIR = ROOT / "attributes"
+PHYSICS_DIR = ATTR_DIR / "physics"
+BRAND_DIR = ATTR_DIR / "brand"
+CONSOLIDATED_DIR = ATTR_DIR / "consolidated"
+ATTR_FILE = CONSOLIDATED_DIR / "consolidated_attributes.json"
+
+# Other paths
 EXAMPLES_DIR = ROOT / "examples"
 SCHEMA_DIR = ROOT / "schema"
 CATALOGS_DIR = ROOT / "data" / "product_catalogs"
@@ -35,6 +43,33 @@ MANUFACTURER_KEYWORDS = [
     "Kubota", "Volvo", "Hitachi", "Liebherr", "Terex", "CASE", "Hyundai", 
     "Kobelco", "Doosan", "Takeuchi", "JCB", "New Holland", "Manitou", "Skyjack"
 ]
+
+# Define subcategories for physics attributes
+PHYSICS_SUBCATEGORIES = {
+    # Dimensions and size-related attributes
+    "dimensions": ["height", "width", "length", "radius", "platform", "size", "capacity", "weight"],
+    
+    # Performance-related attributes
+    "performance": ["speed", "power", "flow", "rate", "efficiency", "capacity", "range", "level"],
+    
+    # Electrical attributes
+    "electrical": ["voltage", "battery", "current", "electrical", "amp"],
+    
+    # Default category if no match
+    "general": []
+}
+
+# Define subcategories for brand attributes
+BRAND_SUBCATEGORIES = {
+    # Identification attributes
+    "identification": ["model", "manufacturer", "brand", "name", "id", "number"],
+    
+    # Specification attributes (brand-specific)
+    "specifications": ["type", "series", "configuration"],
+    
+    # Default category if no match
+    "general": []
+}
 
 # Utility functions
 def git(*args):
@@ -61,6 +96,25 @@ def load_examples() -> List[Dict[str, Any]]:
             except json.JSONDecodeError:
                 print(f"Error parsing {file_path}")
     return examples
+
+def determine_subcategory(attr_code, attr_data, category):
+    """Determine the appropriate subcategory for an attribute."""
+    if category == "physics":
+        subcategories = PHYSICS_SUBCATEGORIES
+    else:  # brand
+        subcategories = BRAND_SUBCATEGORIES
+    
+    # Check each subcategory's keywords for a match in the attribute code
+    for subcategory, keywords in subcategories.items():
+        if subcategory == "general":
+            continue
+            
+        for keyword in keywords:
+            if keyword in attr_code.lower():
+                return subcategory
+    
+    # Default to general if no match found
+    return "general"
 
 def detect_manufacturer(content: str) -> Optional[str]:
     """Detect which manufacturer is mentioned in the content."""
@@ -413,10 +467,57 @@ def main():
         print("No valid new attributes to add.")
         return
     
-    # Update attributes file
-    attrs_data["attributes"].update(valid_attrs)
-    with ATTR_FILE.open("w") as f:
-        json.dump(attrs_data, f, indent=2)
+    # Create individual attribute files in the appropriate directories
+    today = datetime.date.today().isoformat()
+    created_files = []
+    
+    for attr_code, attr_data in valid_attrs.items():
+        # Get category and determine subcategory
+        category = attr_data.get("category", "physics")
+        subcategory = determine_subcategory(attr_code, attr_data, category)
+        
+        # Create the complete attribute data with additional metadata
+        complete_attr = {
+            "code": attr_code,
+            "name": attr_data.get("name", ""),
+            "type": attr_data.get("type", ""),
+            "category": category,
+            "subcategory": subcategory,
+            "added_date": today,
+            "last_modified": today
+        }
+        
+        # Add optional fields if they exist
+        if "unit" in attr_data:
+            complete_attr["unit"] = attr_data["unit"]
+        if "description" in attr_data:
+            complete_attr["description"] = attr_data["description"]
+        
+        # Determine the destination path
+        if category == "physics":
+            dest_dir = PHYSICS_DIR / subcategory
+        else:  # brand
+            dest_dir = BRAND_DIR / subcategory
+        
+        # Ensure directory exists
+        dest_dir.mkdir(exist_ok=True, parents=True)
+        
+        # Write the individual attribute file
+        dest_file = dest_dir / f"{attr_code}.json"
+        with open(dest_file, 'w') as f:
+            json.dump(complete_attr, f, indent=2)
+        
+        created_files.append(dest_file)
+        print(f"Created {dest_file}")
+    
+    # Run the consolidation script to update the consolidated file
+    try:
+        consolidate_script = ROOT / "scripts" / "consolidate_attributes.py"
+        if consolidate_script.exists():
+            subprocess.check_call(["python", str(consolidate_script)], cwd=ROOT)
+            print("Consolidated attribute file updated.")
+    except subprocess.CalledProcessError as e:
+        print(f"Warning: Failed to run consolidation script: {e}")
     
     # Validate entire repo
     try:
@@ -424,7 +525,9 @@ def main():
         print("Validation successful!")
     except subprocess.CalledProcessError:
         print("Validation failed. Rolling back changes.")
-        git("checkout", "--", str(ATTR_FILE))
+        for file in created_files:
+            if file.exists():
+                file.unlink()
         return
     
     # Ensure git identity (needed in CI containers)
@@ -485,42 +588,62 @@ def main():
         print("PR already exists; branch just force-pushed.")
         return
     
-    # Format PR details with category information
-    physics_attrs = []
-    brand_attrs = []
+    # Format PR details with category and subcategory information
+    physics_attrs_by_subcategory = {}
+    brand_attrs_by_subcategory = {}
+    
+    # Initialize subcategory lists
+    for subcategory in PHYSICS_SUBCATEGORIES.keys():
+        physics_attrs_by_subcategory[subcategory] = []
+    for subcategory in BRAND_SUBCATEGORIES.keys():
+        brand_attrs_by_subcategory[subcategory] = []
     
     for key, attr in valid_attrs.items():
         category = attr.get("category", "")
+        subcategory = determine_subcategory(key, attr, category)
+        
         detail = f"* `{key}`: {attr['name']} ({attr['type']}"
         if "unit" in attr:
             detail += f", {attr['unit']}"
         detail += ")" 
         
         if category == "physics":
-            physics_attrs.append(detail)
+            physics_attrs_by_subcategory[subcategory].append(detail)
         else:
-            brand_attrs.append(detail)
+            brand_attrs_by_subcategory[subcategory].append(detail)
     
-    # Create the PR body with separated physics and brand attributes
+    # Create the PR body with categorized attributes by subcategory
     body = (
         "### Codex Attribute Proposal\n\n"
         "Automated PR adding new attribute definitions suggested by Codex.\n\n"
-        "#### New Physics Attributes:\n"
+        "## New Physics Attributes:\n"
     )
     
-    if physics_attrs:
-        body += "\n".join(physics_attrs) + "\n\n"
-    else:
-        body += "None\n\n"
+    # Add physics attributes by subcategory
+    physics_count = 0
+    for subcategory, attrs in physics_attrs_by_subcategory.items():
+        if attrs:
+            physics_count += len(attrs)
+            body += f"\n### {subcategory.title()}:\n"
+            body += "\n".join(attrs) + "\n"
+    
+    if physics_count == 0:
+        body += "\nNone\n"
+    
+    body += "\n## New Brand Attributes:\n"
+    
+    # Add brand attributes by subcategory
+    brand_count = 0
+    for subcategory, attrs in brand_attrs_by_subcategory.items():
+        if attrs:
+            brand_count += len(attrs)
+            body += f"\n### {subcategory.title()}:\n"
+            body += "\n".join(attrs) + "\n"
+    
+    if brand_count == 0:
+        body += "\nNone\n"
         
-    body += (
-        "#### New Brand Attributes:\n"
-    )
-    
-    if brand_attrs:
-        body += "\n".join(brand_attrs) + "\n\n"
-    else:
-        body += "None\n\n"
+    body += "\n"
         
     body += (
         "#### Analysis Process:\n"
@@ -535,8 +658,7 @@ def main():
     )
     
     # Create PR
-    physics_count = len(physics_attrs)
-    brand_count = len(brand_attrs)
+    # Count was already calculated in PR body generation
     requests.post(
         f"{api}/pulls",
         headers=headers,
