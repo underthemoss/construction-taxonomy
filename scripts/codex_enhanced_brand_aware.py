@@ -10,6 +10,27 @@ import json, os, subprocess, datetime, pathlib, requests, openai, sys, re
 from typing import Dict, List, Set, Any, Optional, Tuple
 from collections import defaultdict
 
+# Import physics attribute normalizer
+try:
+    from physics_normalizer import normalize_physics_attribute, get_standard_unit, is_scientific_attribute
+except ImportError:
+    # If module not found, try with explicit path
+    sys.path.append(str(pathlib.Path(__file__).parent))
+    try:
+        from physics_normalizer import normalize_physics_attribute, get_standard_unit, is_scientific_attribute
+    except ImportError:
+        print("Warning: Could not import physics_normalizer. Using simplified normalization.")
+        
+        # Fallback implementations if module not available
+        def normalize_physics_attribute(attr_name):
+            return attr_name.lower().replace(' ', '_'), "general"
+            
+        def get_standard_unit(canonical_attr):
+            return ""
+            
+        def is_scientific_attribute(attr_name):
+            return True  # Assume all are scientific in fallback mode
+
 # Support both openai <1 and >=1
 try:
     from openai import OpenAI  # type: ignore
@@ -126,6 +147,7 @@ def detect_manufacturer(content: str) -> Optional[str]:
 def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[str]]]:
     """Analyze source content pages to extract potential attributes and track manufacturer presence."""
     potential_attributes = {}
+    normalized_physics_attributes = {}  # Track normalized physics attributes
     manufacturer_attributes = defaultdict(set)  # Track which manufacturers have which attributes
     manufacturer_count = defaultdict(set)      # Count unique manufacturers for each attribute
     
@@ -177,36 +199,39 @@ def analyze_source_content() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Set[s
                         else:
                             # Try to extract primary unit from the value (e.g., '67,500 lb (30,600 kg)' → 'lb')
                             unit_match = re.search(r'(\d+(?:[,\.]\d+)?)\s*([a-zA-Z]+(?:\s[a-zA-Z]+)?)', attr_value)
-                            if unit_match:
+                            unit = None
+                            if len(match) > 2 and match[2]:
+                                unit = match[2].strip()
+                            elif unit_match:
                                 unit = unit_match.group(2).strip()
-                            
-                            # Look for dual units in parentheses
-                            dual_unit_match = re.search(r'\((\d+(?:[,\.]\d+)?)\s*([a-zA-Z]+(?:\s[a-zA-Z]+)?)', attr_value)
-                            # If we have dual units but no primary unit, use the secondary unit
-                            if dual_unit_match and not unit:
-                                unit = dual_unit_match.group(2).strip()
                         
-                        # Determine if this is a physics or brand attribute
-                        # Physics attributes typically have units and numeric values
-                        is_physics = False
-                        if unit or re.search(r'\d+(?:\.\d+)?', attr_value):
-                            is_physics = True
-                        
-                        # Store the attribute
+                        # Create or update the attribute record
                         if attr_key not in potential_attributes:
                             potential_attributes[attr_key] = {
-                                "name": attr_name,
-                                "type": "number" if is_physics else "string",
-                                "category": "physics" if is_physics else "brand",
+                                "name": attr_name.strip() if not is_physics else canonical_name.replace('_', ' ').title(),
+                                "category": category,
+                                "sources": [str(file_path)],
+                                "count": 1
                             }
                             
+                            # For physics attributes, set the subcategory
+                            if is_physics:
+                                potential_attributes[attr_key]["subcategory"] = subcategory
+                            
+                            # Add unit if available
                             if unit:
-                                potential_attributes[attr_key]["unit"] = unit
+                                potential_attributes[attr_key]["unit"] = unit.strip()
+                        else:
+                            # Update existing attribute
+                            potential_attributes[attr_key]["count"] += 1
+                            if str(file_path) not in potential_attributes[attr_key]["sources"]:
+                                potential_attributes[attr_key]["sources"].append(str(file_path))
                         
-                        # Track which manufacturer has this attribute
+                        # Track manufacturer association
                         if manufacturer:
                             manufacturer_attributes[attr_key].add(manufacturer)
-                        
+                            manufacturer_count[attr_key].add(manufacturer)
+        
         except Exception as e:
             print(f"Error processing source file {file_path}: {e}")
     
@@ -333,15 +358,26 @@ def deduplicate_attributes(new_attrs: Dict[str, Any], current_attrs: Dict[str, A
     
     return deduped
 
-def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, Any]], example_attrs: Dict[str, Any], schema: Dict[str, Any]) -> Dict[str, Any]:
-    """Ask Codex for improved attribute definitions based on analysis."""
+def ask_codex(current_attrs: Dict[str, Any], catalog_attrs: Dict[str, Dict[str, Any]], example_attrs: Dict[str, Any], schema: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """Ask Codex for improved attribute definitions based on analysis.
+    
+    Uses a scientific approach to physics attributes, treating them as pure physical properties
+    without product-specific qualifiers."""
     prompt = (
-        "You are an expert in construction equipment taxonomy. \n\n"
+        "You are an expert in construction equipment taxonomy and physics. \n\n"
         "ATTRIBUTE LIBRARY MODEL:\n"
-        "Our construction taxonomy uses a centralized attribute library where:\n"
-        "1. Each attribute has a unique snake_case identifier (e.g., 'max_platform_height')\n"
-        "2. Attributes are categorized as either 'physics' (properties shared across manufacturers) or 'brand' (manufacturer-specific)\n"
-        "3. Products reference these standardized attributes instead of defining new ones\n\n"
+        "We maintain a standardized attribute library with the following characteristics:\n"
+        "1. Each attribute has a unique snake_case identifier (e.g., 'weight', 'length', 'voltage')\n"
+        "2. Physics attributes MUST be pure scientific properties WITHOUT product qualifiers:\n"
+        "   - GOOD: 'weight' (pure physical property)\n"
+        "   - BAD: 'tool_weight' (contains product qualifier 'tool')\n"
+        "3. Attributes are categorized as either 'physics' (universal physical properties) or 'brand' (manufacturer-specific)\n"
+        "4. Products reference these standardized attributes instead of defining new ones\n\n"
+        "PHYSICS ATTRIBUTE GUIDELINES:\n"
+        "- Must be fundamental physical properties (mass, length, time, temperature, etc.)\n"
+        "- Must NOT include product-specific qualifiers (engine_, tool_, battery_, etc.)\n"
+        "- Must use standard scientific units (kg, m, s, °C, etc.)\n"
+        "- Names should be canonical (e.g., 'weight' not 'mass_of_tool')\n\n"
         "PRODUCT CATALOG EXAMPLE:\n"
         "```\n"
         "* Operating Weight: 67,500 lb (30,600 kg)\n"
@@ -430,21 +466,38 @@ def main():
     # Load and analyze source content with manufacturer awareness
     print("Analyzing source content with brand awareness...")
     content_attrs, manufacturer_data = analyze_source_content()
-    print(f"Found {len(content_attrs)} potential attributes from source content")
+    # Print stats about the extracted attributes
+    total_attrs = len(content_attrs)
+    physics_attrs = len([a for a in content_attrs.values() if a.get("category") == "physics"])
+    brand_attrs = len([a for a in content_attrs.values() if a.get("category") == "brand"])
+    common_attrs = len([a for a, manufacturers in manufacturer_data.items() if len(manufacturers) > 1])
     
-    # Count attributes by category
-    physics_count = sum(1 for attr in content_attrs.values() if attr.get("category") == "physics")
-    brand_count = sum(1 for attr in content_attrs.values() if attr.get("category") == "brand")
-    print(f"  Physics attributes: {physics_count}")
-    print(f"  Brand attributes: {brand_count}")
+    print(f"Found {total_attrs} potential attributes from source content")
+    print(f"  Physics attributes: {physics_attrs}")
+    print(f"  Brand attributes: {brand_attrs}")
+    print(f"  Attributes appearing across multiple manufacturers: {common_attrs}")
     
-    # Count cross-manufacturer attributes
-    cross_manufacturer = sum(1 for key, manufacturers in manufacturer_data.items() if len(manufacturers) > 1)
-    print(f"  Attributes appearing across multiple manufacturers: {cross_manufacturer}")
+    # Use different filtering criteria for physics vs. brand attributes
+    filtered_attributes = {}
+    
+    # For physics attributes: Accept any with valid units, regardless of manufacturer count
+    # For brand attributes: Require multiple manufacturer mentions for validation
+    for attr_key, attr_data in content_attrs.items():
+        category = attr_data.get("category", "")
+        
+        # Physics attributes just need to be physically meaningful
+        if category == "physics":
+            # Accept physics attributes without manufacturer restrictions
+            filtered_attributes[attr_key] = attr_data
+        else:
+            # Brand attributes need validation across manufacturers
+            manufacturers = manufacturer_data.get(attr_key, set())
+            if len(manufacturers) > 1:
+                filtered_attributes[attr_key] = attr_data
     
     # Ask Codex for suggestions based on analysis with brand awareness
     print("Consulting Codex for attribute recommendations...")
-    suggested_attrs = ask_codex(current_attrs, content_attrs, example_attrs, schema)
+    suggested_attrs = ask_codex(current_attrs, filtered_attributes, example_attrs, schema)
     print(f"Codex suggested {len(suggested_attrs)} new attributes")
     
     # Deduplicate and validate
