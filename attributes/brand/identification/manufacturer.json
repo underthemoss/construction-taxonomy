@@ -1,0 +1,10 @@
+{
+  "code": "manufacturer",
+  "name": "Manufacturer",
+  "type": "string",
+  "category": "brand",
+  "subcategory": "identification",
+  "added_date": "2025-05-25",
+  "last_modified": "2025-05-25",
+  "description": "Company that produces the product"
+}

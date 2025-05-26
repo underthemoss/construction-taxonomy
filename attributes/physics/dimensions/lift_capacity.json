@@ -1,0 +1,10 @@
+{
+  "code": "lift_capacity",
+  "name": "Lift Capacity",
+  "type": "number",
+  "category": "physics",
+  "subcategory": "dimensions",
+  "added_date": "2025-05-25",
+  "last_modified": "2025-05-25",
+  "unit": "lb"
+}

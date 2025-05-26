@@ -1,0 +1,10 @@
+{
+  "code": "turning_radius_4ws",
+  "name": "Turning Radius (4WS)",
+  "type": "number",
+  "category": "physics",
+  "subcategory": "dimensions",
+  "added_date": "2025-05-25",
+  "last_modified": "2025-05-25",
+  "unit": "ft"
+}

@@ -1,0 +1,10 @@
+{
+  "code": "max_platform_height",
+  "name": "Max Platform Height",
+  "type": "number",
+  "category": "physics",
+  "subcategory": "dimensions",
+  "added_date": "2025-05-25",
+  "last_modified": "2025-05-25",
+  "unit": "ft"
+}

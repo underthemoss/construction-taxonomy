@@ -1,0 +1,10 @@
+{
+  "code": "battery_voltage",
+  "name": "Battery Voltage",
+  "type": "number",
+  "category": "physics",
+  "subcategory": "electrical",
+  "added_date": "2025-05-25",
+  "last_modified": "2025-05-25",
+  "unit": "V"
+}
