@@ -6,11 +6,23 @@
       "category": "physics",
       "unit": "V"
     },
-    "lift_capacity": {
-      "name": "Lift Capacity",
+    "maximum_dig_depth": {
+      "name": "Maximum Dig Depth",
       "type": "number",
       "category": "physics",
-      "unit": "lb"
+      "unit": "m"
+    },
+    "net_power": {
+      "name": "Net Power",
+      "type": "number",
+      "category": "physics",
+      "unit": "kW"
+    },
+    "maximum_reach_at_ground_level": {
+      "name": "Maximum Reach at Ground Level",
+      "type": "number",
+      "category": "physics",
+      "unit": "m"
     },
     "turning_radius_4ws": {
       "name": "Turning Radius (4WS)",
@@ -18,11 +30,23 @@
       "category": "physics",
       "unit": "ft"
     },
+    "operating_weight": {
+      "name": "Operating Weight",
+      "type": "number",
+      "category": "physics",
+      "unit": "kg"
+    },
     "max_platform_height": {
       "name": "Max Platform Height",
       "type": "number",
       "category": "physics",
       "unit": "ft"
+    },
+    "lift_capacity": {
+      "name": "Lift Capacity",
+      "type": "number",
+      "category": "physics",
+      "unit": "lb"
     },
     "manufacturer": {
       "name": "Manufacturer",
@@ -32,6 +56,11 @@
     },
     "model_number": {
       "name": "Model Number",
+      "type": "string",
+      "category": "brand"
+    },
+    "engine_model": {
+      "name": "Engine Model",
       "type": "string",
       "category": "brand"
     }
